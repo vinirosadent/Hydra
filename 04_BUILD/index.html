@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HYDRA — v9.34 (roteiro v16 · voz nova · cenário A)</title>
+<style>
+:root{--bg:#070a13;--panel:rgba(12,16,30,.86);--line:rgba(255,255,255,.10);--txt:#c2c9e6;--faint:#7b83a6;--bright:#e8ecf6;--gold:#ffc84b;--teal:#2dd4bf;
+--mono:ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--txt);font-family:var(--sans);overflow:hidden}
+canvas#gl{position:fixed;inset:0;display:block;width:100%;height:100%}
+.hud{position:fixed;z-index:10;background:var(--panel);border:1px solid var(--line);border-radius:10px;backdrop-filter:blur(8px);font-size:12px}
+.hud h4{margin:0;padding:8px 11px 7px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);border-bottom:1px solid var(--line);font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.hud .bd{padding:9px 11px 11px}
+#loc{top:12px;left:12px;width:296px}#loc table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11.5px}#loc td{padding:2px 0}#loc td.k{color:var(--faint);width:44px;letter-spacing:.06em}#loc td.v{color:var(--bright);text-align:right;font-variant-numeric:tabular-nums}
+#loc .st{margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-size:11.5px;line-height:1.45}#loc .st b{color:var(--gold);font-family:var(--mono)}
+.row{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+button{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.04em;color:var(--bright);background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:7px;padding:6px 10px;cursor:pointer}
+button:hover{background:rgba(255,255,255,.13)}button.pri{background:rgba(255,200,75,.16);border-color:rgba(255,200,75,.42);color:#ffd97a}button.on{background:rgba(45,212,191,.2);border-color:rgba(45,212,191,.55);color:#7ff0e0}button.sm{padding:4px 7px;font-size:10px}button.ghost{background:none;border-color:transparent;color:var(--faint);padding:3px 5px}
+kbd{font-family:var(--mono);font-size:9.5px;color:var(--faint);border:1px solid var(--line);border-radius:4px;padding:0 4px;margin-left:5px}
+#reg{top:12px;right:12px;width:322px;max-height:calc(100vh - 200px);display:flex;flex-direction:column}#reg .bd{overflow:auto;flex:1;padding-top:6px}#reg .empty{color:var(--faint);font-size:11px;line-height:1.5;padding:6px 0 2px}
+.item{border:1px solid var(--line);border-radius:8px;padding:7px 8px;margin-bottom:6px;background:rgba(255,255,255,.035)}.item .top{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.item input{flex:1;min-width:0;background:none;border:none;border-bottom:1px dashed var(--line);color:var(--gold);font-family:var(--mono);font-size:11px;padding:1px 0;outline:none}
+.item .co{font-family:var(--mono);font-size:10.5px;line-height:1.5;font-variant-numeric:tabular-nums}.item .co span{color:var(--faint)}
+.item .tipos{display:flex;gap:4px;margin:2px 0 5px;flex-wrap:wrap}.item .mat{display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin-bottom:5px}.item .mit{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line);border-radius:6px;padding:2px 4px;font-size:10px;font-family:var(--mono);max-width:100%}.item .mit img{width:34px;height:26px;object-fit:cover;border-radius:3px}.item .mit span{max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.item.drop{outline:1px dashed rgba(45,212,191,.8)}#rsim{display:none;margin:6px 0 2px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;font-family:var(--mono);font-size:10.5px;line-height:1.5;background:rgba(45,212,191,.07)}#rsim .bad{color:#ff9db4}.item .tipos.acoes .acb{font-size:9.5px;opacity:.85}.item .top .rdt{padding:3px 6px;color:var(--faint)}.item .tipos .rsee{margin-left:auto;color:var(--teal);border-color:rgba(45,212,191,.35)}
+.item textarea{width:100%;box-sizing:border-box;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:6px;color:var(--bright);font-family:inherit;font-size:11.5px;line-height:1.45;padding:5px 6px;margin-bottom:5px;resize:vertical;outline:none}
+.item textarea:focus{border-color:rgba(255,200,75,.45)}.item.rg-problema{border-left:2px solid rgba(255,110,140,.8)}.item.rg-pedido{border-left:2px solid rgba(45,212,191,.8)}.item.rg-camera{border-left:2px solid rgba(255,200,75,.7)}
+#tr{bottom:12px;left:50%;transform:translateX(-50%);width:min(820px,calc(100vw - 24px))}#tr .bd{padding:10px 12px 11px}
+.tl{display:flex;align-items:center;gap:9px}#scrub{flex:1;height:4px;appearance:none;background:rgba(255,255,255,.13);border-radius:3px;outline:none;cursor:pointer}
+#scrub::-webkit-slider-thumb{appearance:none;width:13px;height:13px;border-radius:50%;background:var(--gold);cursor:pointer;border:2px solid #0a0d18}
+#clock{font-family:var(--mono);font-size:11.5px;color:var(--bright);font-variant-numeric:tabular-nums;white-space:nowrap}
+.jump{display:flex;gap:4px;margin-top:9px;flex-wrap:wrap}.jump button{padding:4px 0;flex:1;min-width:60px;font-family:var(--mono);font-size:10px;font-weight:500;line-height:1.25}
+.jump button.cur{background:rgba(255,200,75,.18);border-color:rgba(255,200,75,.45);color:#ffd97a}.jump button small{display:block;font-size:8.5px;color:var(--faint);font-weight:400}
+#vo{position:fixed;left:50%;bottom:118px;transform:translateX(-50%);z-index:9;width:min(900px,calc(100vw - 24px));text-align:center;font-size:19px;line-height:1.45;color:#fff;text-shadow:0 2px 12px #000,0 0 3px #000;pointer-events:none}
+#vo{display:none}body.legenda #vo{display:block}
+#vo small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--gold);margin-bottom:6px}
+#ff{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:20;display:none;background:rgba(45,212,191,.15);border:1px solid rgba(45,212,191,.5);border-radius:8px;padding:7px 14px;font-family:var(--mono);font-size:11.5px;color:#8ff2e4}
+body.ff #ff{display:block}
+/* D-324: a barra de transporte (play/scrub) NÃO some no free-fly nem no estudo de trecho — sem ela não há como continuar a peça */
+body.ff #tr,body.trecho #tr{display:block!important}
+body.ff #tr{bottom:64px}
+body.silence .hud,body.silence #reg,body.silence #vo,body.silence #maplab{visibility:hidden!important}body.hidehud #reg{display:none}body.hidehud .hud,body.hidehud #maplab{display:none}
+#snd{position:fixed;left:50%;top:80%;transform:translate(-50%,-50%);z-index:30;display:flex;flex-direction:column;align-items:center;gap:9px}#snd.gone{display:none}
+#snd button{font-size:17px;padding:14px 26px;border-radius:10px}#snd small{font-family:var(--mono);font-size:11px;color:var(--faint);background:var(--panel);padding:4px 9px;border-radius:6px}
+#rev{display:none;position:fixed;top:0;right:0;bottom:0;width:400px;z-index:25;flex-direction:column;background:#0b0f1c;border-left:1px solid var(--line);font-size:12.5px;color:var(--txt)}
+#rev h5{margin:10px 0 4px;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600}
+#rev ul{margin:0;padding-left:16px;line-height:1.4}#rev li{margin:2px 0}
+.rv-h{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:11.5px}.rv-h b{color:var(--gold);letter-spacing:.12em}
+.rv-sec{padding:6px 12px 8px;border-bottom:1px solid var(--line)}.rv-notes{flex:1;overflow:auto}
+.rv-f{padding:5px 7px;border-radius:6px;margin:3px 0;line-height:1.45;cursor:pointer;color:var(--bright);font-size:13.5px}.rv-f small{font-family:var(--mono);color:var(--faint);font-size:10px}
+.rv-f:hover{background:rgba(255,255,255,.05)}.rv-dim{opacity:.45;font-size:12px}.rv-w{background:rgba(255,200,75,.3);border-radius:3px;color:#fff}
+.rv-row{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}.rv-row button{flex:1}.rv-foot{padding:8px 12px 12px;margin:0;border-top:1px solid var(--line)}
+.rv-next{font-size:11.5px;color:var(--faint)}.rv-next b{color:var(--txt);font-family:var(--mono)}
+.rv-empty{color:var(--faint);font-size:11.5px;line-height:1.5}
+.rv-note{border:1px solid var(--line);border-radius:8px;padding:6px 7px;margin:6px 0;background:rgba(255,255,255,.03)}.rv-nh{display:flex;align-items:center;gap:6px;font-size:11px;margin-bottom:5px}.rv-nh span{flex:1;color:var(--faint)}.rv-nh b{color:var(--gold)}
+.rv-note textarea{width:100%;box-sizing:border-box;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:6px;color:var(--bright);font-family:var(--sans);font-size:12.5px;padding:6px;resize:vertical}
+body.revisao #reg,body.revisao #maplab{display:none!important}body.revisao #tr,body.revisao #snd,body.revisao #ff{left:calc(50% - 200px)}body.revisao #tr{width:min(760px,calc(100vw - 424px))}
+#maplab{position:fixed;right:14px;bottom:12px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);z-index:9}
+#boot{position:fixed;inset:0;z-index:50;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;transition:opacity .5s;font-family:var(--mono);color:var(--faint);font-size:12px}#boot.gone{opacity:0;pointer-events:none}
+
+/* ===== ESTÚDIO DE DIREÇÃO (D-325) ===== */
+body.estudio #reg,body.estudio #loc,body.estudio #maplab,body.estudio #tr,body.estudio #rev{display:none!important}
+#est{display:none}body.estudio #est{display:block}
+#estTopo{position:fixed;top:0;left:0;right:0;height:46px;z-index:30;display:flex;align-items:center;gap:18px;padding:0 16px;background:linear-gradient(180deg,rgba(7,10,19,.94),rgba(7,10,19,.72));border-bottom:1px solid var(--line);font-size:12.5px}
+#estTopo .e-t b{font:600 17px var(--mono);color:var(--bright);font-variant-numeric:tabular-nums}
+#estTopo .e-t span{color:var(--faint);margin-left:5px;font-family:var(--mono)}
+#estTopo .e-b b{color:var(--gold);font-weight:600}#estTopo .e-b span{color:var(--txt);margin-left:7px}
+#estTopo .e-m{color:var(--teal);font-family:var(--mono);font-size:12px}
+#estTopo .e-n{color:var(--faint)}
+#estTopo .e-v{margin-left:auto;max-width:38ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#dfe5f5;font-style:italic;opacity:.85}
+#estLado{position:fixed;top:46px;right:0;bottom:136px;width:330px;z-index:29;background:var(--panel);border-left:1px solid var(--line);display:flex;flex-direction:column}
+#estLado h4{margin:0;padding:11px 13px;font:600 10.5px var(--mono);letter-spacing:.14em;color:var(--faint);display:flex;justify-content:space-between;border-bottom:1px solid var(--line)}
+#elLista{flex:1;overflow:auto;padding:8px}
+.e-vazio{color:var(--faint);font-size:12px;line-height:1.6;padding:8px 6px}
+.e-it{border:1px solid var(--line);border-left-width:3px;border-radius:8px;padding:7px 9px;margin-bottom:7px;cursor:pointer;background:rgba(255,255,255,.035)}
+.e-it:hover{background:rgba(255,255,255,.08)}
+.e-it.olhar{border-left-color:var(--teal)}.e-it.parar{border-left-color:var(--gold)}.e-it.nota{border-left-color:#8b93b5}
+.e-it .l1{display:flex;align-items:baseline;gap:8px;font-size:12px}
+.e-it .verbo{font-weight:700;letter-spacing:.04em}
+.e-it.olhar .verbo{color:#7ff0e0}.e-it.parar .verbo{color:#ffd97a}.e-it.nota .verbo{color:#b9c0db}
+.e-it .qd{font-family:var(--mono);color:var(--faint);font-variant-numeric:tabular-nums}
+.e-it .l2{font-size:12px;color:var(--bright);margin-top:3px;line-height:1.4}
+.e-it .l3{font-size:11px;color:var(--faint);margin-top:3px;font-family:var(--mono)}
+.e-it .acts{display:flex;gap:5px;margin-top:6px}
+.e-it .acts button{font-size:10.5px;padding:3px 7px}
+.c-h .sm{padding:3px 8px}
+#ecVista.on{background:rgba(45,212,191,.2);border-color:rgba(45,212,191,.55);color:#7ff0e0}
+.e-foot{display:flex;gap:6px;padding:9px;border-top:1px solid var(--line)}
+.e-foot button{flex:1;font-size:11.5px}
+#estPrev{position:fixed;right:346px;bottom:150px;width:320px;height:200px;z-index:28;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#000;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+#estPrev canvas{width:100%;height:100%;display:block}
+#estPrev .pv-t{position:absolute;top:6px;left:9px;font:600 9.5px var(--mono);letter-spacing:.12em;color:rgba(255,255,255,.75);text-shadow:0 1px 4px #000}
+body.estudio.semprev #estPrev{display:none}
+#estPlanta{position:fixed;left:16px;bottom:150px;width:620px;height:210px;z-index:28;border:1px solid var(--line);border-radius:10px;pointer-events:none;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+#estPlanta .pl-t{position:absolute;top:6px;left:10px;font:600 9.5px var(--mono);letter-spacing:.12em;color:var(--faint)}
+#estPlanta .pl-d{position:absolute;bottom:6px;right:10px;font:600 10px var(--mono);color:var(--teal)}
+body.estudio.semplanta #estPlanta{display:none}
+#estBarra{position:fixed;left:0;right:0;bottom:0;height:136px;z-index:30;background:linear-gradient(0deg,rgba(7,10,19,.96),rgba(7,10,19,.82));border-top:1px solid var(--line);padding:9px 16px 0}
+#estCtrl{display:flex;gap:7px;align-items:center;margin-bottom:8px}
+#estCtrl button{font-size:12.5px;padding:6px 12px}
+#estCtrl .e-sep{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-left:10px}
+#estCtrl .alvo{padding:5px 9px;font-size:11.5px}
+.c-modos{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:-4px 0 10px}
+.c-modos span{font-size:11.5px;color:var(--faint);width:100%}
+.c-modos button.on{background:rgba(45,212,191,.18);border-color:rgba(45,212,191,.5);color:#7ff0e0}
+#estCtrl #ebMarcar{margin-left:auto;font-weight:600;letter-spacing:.04em;padding:7px 18px}
+#estTl{position:relative;height:52px;border:1px solid var(--line);border-radius:8px;background:rgba(0,0,0,.28);overflow:hidden;cursor:pointer}
+#tlBlocos div{position:absolute;top:0;bottom:22px;border-right:1px solid rgba(255,255,255,.10);font:600 9.5px var(--mono);letter-spacing:.08em;color:var(--faint);padding:4px 0 0 6px;overflow:hidden;white-space:nowrap}
+#tlBlocos div:nth-child(odd){background:rgba(255,255,255,.035)}
+#tlParadas i{position:absolute;bottom:22px;width:9px;height:9px;margin-left:-4.5px;background:rgba(255,200,75,.5);border:1px solid rgba(255,200,75,.85);transform:rotate(45deg)}
+#tlMarcas b{position:absolute;bottom:2px;height:18px;width:3px;margin-left:-1.5px;border-radius:2px;cursor:grab;touch-action:none}
+#tlMarcas b:active,#tlMarcas b.arrastando{cursor:grabbing;filter:brightness(1.6);width:5px;margin-left:-2.5px}
+#tlMarcas b.olhar{background:var(--teal)}#tlMarcas b.parar{background:var(--gold)}#tlMarcas b.nota{background:#8b93b5}
+#tlAB{position:absolute;top:0;bottom:22px;background:rgba(140,170,255,.16);border-left:1px solid rgba(165,195,255,.6);border-right:1px solid rgba(165,195,255,.6);display:none}
+#tlAB.on{display:block}
+#tlCursor{position:absolute;top:0;bottom:0;width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 8px rgba(255,255,255,.7);pointer-events:none}
+#estAjuda{margin-top:7px;font-size:11px;color:var(--faint);text-align:center}
+#estAjuda b{color:var(--bright);font-family:var(--mono)}
+#estCtrl #ebLoop:disabled{opacity:.35;cursor:default}
+#estCtrl #ebOrig.on{background:rgba(255,110,140,.22);border-color:rgba(255,110,140,.55);color:#ff9db4}
+#estTopo .e-v span{cursor:pointer;border-radius:3px;padding:0 1px}
+#estTopo .e-v span:hover{background:rgba(255,255,255,.14)}
+#estTopo .e-v span.on{color:var(--gold);background:rgba(255,200,75,.16)}
+#estHelp{display:none;position:fixed;inset:0;z-index:65;background:rgba(4,6,12,.72);align-items:center;justify-content:center}
+#estHelp.on{display:flex}
+#estHelp .h-in{width:min(640px,92vw);max-height:82vh;overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+#estHelp .h-h{display:flex;align-items:center;margin-bottom:6px}
+#estHelp .h-h b{font:600 15px var(--mono);color:var(--bright);letter-spacing:.06em}
+#estHelp .h-h button{margin-left:auto}
+#estHelp .h-note{font-size:11.5px;color:var(--faint);margin-bottom:12px;line-height:1.5}
+#estHelp .h-note a{color:var(--teal)}
+#estHelp h5{margin:14px 0 6px;font:600 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint);border-top:1px solid var(--line);padding-top:10px}
+#estHelp h5:first-of-type{border-top:none;padding-top:0;margin-top:0}
+#estHelp table{width:100%;border-collapse:collapse;font-size:12.5px}
+#estHelp td{padding:4px 4px;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top}
+#estHelp td.k{width:150px;font-family:var(--mono);color:var(--gold);white-space:nowrap}
+#estHelp td.d{color:var(--txt);line-height:1.4}
+#estCartao{display:none;position:fixed;inset:0;z-index:60;background:rgba(4,6,12,.62);align-items:center;justify-content:center}
+#estCartao.on{display:flex}
+#estCartao .c-in{width:min(520px,92vw);background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 16px 13px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.c-h{display:flex;align-items:baseline;gap:10px;margin-bottom:9px}
+.c-h b{font:600 18px var(--mono);color:var(--bright)}.c-h span{color:var(--gold);font-size:12.5px}
+.c-h button{margin-left:auto}
+.c-p{margin:0 0 10px;font-size:13.5px;color:var(--txt)}
+.c-ops{display:flex;flex-direction:column;gap:7px;margin-bottom:11px}
+.c-ops button{text-align:left;padding:10px 12px;border-radius:9px;display:block}
+.c-ops button b{display:block;font-size:13.5px;color:var(--bright);margin-bottom:2px}
+.c-ops button small{display:block;font-size:11.5px;color:var(--faint);line-height:1.45;white-space:normal}
+.c-ops button.sel{background:rgba(255,200,75,.16);border-color:rgba(255,200,75,.5)}
+.c-ops button.sel b{color:#ffd97a}
+#ecTxt{width:100%;box-sizing:border-box;background:rgba(0,0,0,.3);border:1px solid var(--line);border-radius:8px;color:var(--bright);font:inherit;font-size:13px;padding:8px 10px;resize:vertical;outline:none}
+#ecTxt:focus{border-color:rgba(255,200,75,.5)}
+.c-f{display:flex;align-items:center;gap:10px;margin-top:10px}
+.c-f span{font-size:11.5px;color:var(--faint)}.c-f button{margin-left:auto;padding:7px 18px}
+#err{position:fixed;bottom:12px;left:12px;z-index:60;max-width:420px;display:none;background:rgba(40,10,16,.94);border:1px solid rgba(255,90,120,.4);border-radius:9px;padding:9px 12px;font-family:var(--mono);font-size:11px;color:#ffb0c0}
+</style>
+<script type="importmap">{"imports":{"three":"./lib/three.module.js","three/addons/":"./lib/jsm/"}}</script>
+</head><body>
+<canvas id="gl"></canvas>
+<div id="boot">HYDRA · a carregar</div>
+<div id="ff">FREE-FLY</div>
+<div class="hud" id="loc"><h4><span>3D locator</span><span style="letter-spacing:0;text-transform:none"><kbd>H</kbd> esconde</span></h4><div class="bd">
+<table><tr><td class="k">POS</td><td class="v" id="lp">—</td></tr><tr><td class="k">LOOK</td><td class="v" id="ld">—</td></tr><tr><td class="k">PATH</td><td class="v" id="lu">—</td></tr></table>
+<div class="st" id="ls">—</div>
+<div class="row"><button class="pri" id="bReg">Registrar aqui<kbd>R</kbd></button><button id="bFly">Free-fly<kbd>F</kbd></button></div></div></div>
+<div class="hud" id="reg"><h4><span>Registro (<span id="rn">0</span>)</span><span><button class="sm" id="bSim">Simular</button><button class="sm" id="bExp">Caderno</button><button class="sm" id="bCopy">Copy</button><button class="sm" id="bJson">JSON</button></span></h4>
+<div id="rsim"></div><div class="bd" id="rl"><div class="empty">Nada registrado. <b>F</b> para voar, <b>R</b> para registrar — e escreva ali o que você quer. Sobrevive a recarregar; exporta em markdown.</div></div></div>
+<div id="vo"><small id="voB"></small><span id="voT"></span></div>
+<div class="hud" id="tr"><div class="bd"><div class="tl"><button id="bPlay" style="width:34px">❚❚</button><button id="bRew">⟲</button><input type="range" id="scrub" min="0" max="1000" value="0"><span id="clock">0:00</span><button class="sm" id="bSpd">1×</button><button class="sm" id="bMap">planta</button><button class="sm" id="bGuides">guias</button></div><div class="jump" id="jump"></div></div></div>
+<div id="rev"><div class="rv-h"><b>REVISÃO</b><span id="revClock">—</span></div>
+<div class="rv-sec"><h5>Fala</h5><div id="revFala"></div><div class="rv-row"><button id="revPrev">◀ fala <kbd>←</kbd></button><button class="pri" id="revMark">Marcar aqui <kbd>N</kbd></button><button id="revNextF">fala ▶ <kbd>→</kbd></button></div></div>
+<div class="rv-sec"><h5>Câmera</h5><ul id="revCam"></ul><h5>Na tela</h5><ul id="revTela"></ul><h5>Acontece agora</h5><ul id="revAcont"></ul><h5>Próximo evento</h5><div id="revNext" class="rv-next"></div></div>
+<div class="rv-sec rv-notes"><h5>Minhas instruções (<span id="revN">0</span>)</h5><div id="revNotes"></div></div>
+<div class="rv-row rv-foot"><button id="revCopy">Copiar caderno</button><button id="revDl">Baixar caderno</button><button id="revFolha">Baixar folha</button></div></div>
+<div id="snd"><button class="pri" id="bSnd">▶ click to start</button><small>in the headset: entering VR already starts it</small></div>
+<div id="maplab">planta · ▲ = você</div>
+
+<!-- ESTÚDIO DE DIREÇÃO (D-325) — uma interface só: onde estou, o que vem, e um botão para marcar -->
+<div id="est">
+  <div id="estTopo">
+    <div class="e-t"><b id="etRel">0:00</b><span id="etTot">/ 3:43</span></div>
+    <div class="e-b"><b id="etBloco">—</b><span id="etNome"></span></div>
+    <div class="e-n" id="etProx">—</div>
+    <div class="e-v" id="etVoz"></div>
+  </div>
+  <div id="estLado">
+    <h4><span>ROTEIRO DE DIREÇÃO</span><span id="elN">0</span></h4>
+    <div id="elLista"><p class="e-vazio">Nada marcado ainda.<br><b>Enter</b> marca o que você quer no instante em que está.</p></div>
+    <div class="e-foot"><button id="elCaderno">Baixar caderno</button><button id="elCopy">Copiar</button></div>
+  </div>
+  <div id="estPrev"><canvas id="prevGl"></canvas><span class="pv-t">A PEÇA · como está ficando</span></div>
+  <div id="estPlanta"><span class="pl-t">PLANTA · clique = ficar aqui neste segundo</span><span class="pl-d" id="plDica"></span></div>
+  <div id="estBarra">
+    <div id="estCtrl">
+      <button id="ebPlay" title="Espaço">▶</button>
+      <button id="ebM1" title="1 s atrás">−1s</button>
+      <button id="ebP1" title="1 s à frente">+1s</button>
+      <button id="ebFly" title="F">voar</button>
+      <button id="ebAlt" title="X">centrar altura</button>
+      <button id="ebNiv" title="N">nivelar</button>
+      <button id="ebSug" title="G">ir à sugestão</button>
+      <button id="ebPl" class="on" title="P">planta</button>
+      <button id="ebPv" class="on" title="V">preview</button>
+      <span class="e-sep">olhar para:</span>
+      <button class="sm alvo" data-alvo="mesa">mesa</button>
+      <button class="sm alvo" data-alvo="maquete">maquete</button>
+      <button class="sm alvo" data-alvo="monolito">monólito</button>
+      <button class="sm alvo" data-alvo="plinto">plinto</button>
+      <span class="e-sep">timeline:</span>
+      <button id="ebLoop" title="repete o trecho marcado (arraste na timeline para marcar)" disabled>↺ A↔B</button>
+      <button class="ghost sm" id="ebLoopX" title="limpar o trecho A↔B" style="display:none">✕ trecho</button>
+      <button id="ebOrig" title="segure para ver sem as suas marcas (ou tecla O)">original</button>
+      <button class="sm" id="ebAjuda" title="?">?</button>
+      <button class="pri" id="ebMarcar" title="Enter">● MARCAR AQUI</button>
+    </div>
+    <div id="estTl"><div id="tlBlocos"></div><div id="tlParadas"></div><div id="tlAB"></div><div id="tlMarcas"></div><div id="tlCursor"></div></div>
+    <div id="estAjuda"><b>Espaço</b> toca · <b>F</b> voa · <b>roda</b> sobe/desce voando · <b>← →</b> 0,1 s <small>(Shift 1 s · Alt pula momento)</small> · arraste uma marca ou um trecho na timeline · <b>Enter</b> marca · <b>Esc</b> volta · <b>?</b> todos os comandos</div>
+  </div>
+</div>
+<div id="estHelp"><div class="h-in">
+  <div class="h-h"><b>COMANDOS DO ESTÚDIO</b><button class="ghost" id="ehX">✕</button></div>
+  <p class="h-note">Tudo que existe está aqui — se não está nesta lista, não existe. Página avulsa, sem precisar abrir a peça: <a href="./ajuda_estudio.html" target="_blank" rel="noopener">ajuda_estudio.html</a>.</p>
+  <div id="ehBody"></div>
+</div></div>
+<div id="estCartao"><div class="c-in">
+  <div class="c-h"><button class="sm" id="ecM">−</button><b id="ecQuando">0:00</b><button class="sm" id="ecP">+</button><span id="ecBloco"></span><button class="ghost" id="ecX">✕</button></div>
+  <p class="c-p">O que você quer <b>neste instante</b>?</p>
+  <div class="c-ops">
+    <button data-op="olhar"><b>Olhar assim</b><small>a câmera passa a olhar para onde você está olhando agora — aplica na hora</small></button>
+    <button data-op="ficar"><b>Ficar aqui</b><small>neste segundo o espectador está neste lugar — a peça caminha entre os seus pontos</small></button>
+    <button data-op="nota"><b>Só anotar</b><small>um recado para mim, sem mudar nada</small></button>
+  </div>
+  <div class="c-modos" id="ecModos"><span>enquanto caminha até a próxima marca:</span>
+    <button data-modo="fixo" class="sm">fixa neste ponto</button>
+    <button data-modo="passar" class="sm">fixa até passar por ele</button>
+    <button data-modo="solto" class="sm">gira livre até a próxima</button>
+  </div>
+  <textarea id="ecTxt" rows="2" placeholder="em uma linha: o que você quer aqui"></textarea>
+  <div class="c-f"><button class="sm" id="ecVista" title="grava de novo a posição e o ângulo em que você está agora">usar a vista atual</button><span id="ecDica">Enter salva · Esc cancela</span><button class="pri" id="ecOk">Salvar</button></div>
+</div></div>
+<div id="err"></div>
+<script type="module" src="./app.js"></script>
+</body></html>

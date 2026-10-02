@@ -1,0 +1,524 @@
+{
+ "v": 9,
+ "rev": "M-2026-09-26-c",
+ "origem": "trilha M, caderno de 26/09 19:30 aplicado (P1 sai 0:28.5, P2 chega 0:43.7, olhar 0:15.7–0:27.9) + CENA c3 montada (D-359)",
+ "paradas": [
+  {
+   "id": "P0",
+   "fixo": true,
+   "nome": "entrada",
+   "x": 0,
+   "z": 0.14,
+   "chega": 0,
+   "sai": 7.5
+  },
+  {
+   "id": "m1",
+   "nome": "frente da mesa · eluato",
+   "x": 1.9,
+   "z": -2.77,
+   "chega": 17.0,
+   "sai": 28.5
+  },
+  {
+   "id": "m3",
+   "nome": "fim da mesa · hipótese e desenho",
+   "x": 1.91,
+   "z": -7.0,
+   "chega": 43.7,
+   "sai": 59.8
+  },
+  {
+   "id": "m4",
+   "nome": "diante do monólito · modelo e prova",
+   "x": 1.93,
+   "z": -11.64,
+   "chega": 74.7,
+   "sai": 79.6
+  },
+  {
+   "id": "m4c",
+   "nome": "passagem P4→P5 (segue reto, como vinha de P3)",
+   "x": 1.85,
+   "z": -12.5,
+   "chega": 84.69,
+   "sai": 84.69
+  },
+  {
+   "id": "m4d",
+   "nome": "passagem P4→P5 (abre suave para o eixo do monólito)",
+   "x": 1.0,
+   "z": -13.5,
+   "chega": 92.43,
+   "sai": 92.43
+  },
+  {
+   "id": "m5",
+   "nome": "rotunda · drivers e sinal",
+   "x": 0.3,
+   "z": -14.0,
+   "chega": 97.5,
+   "sai": 107.0
+  },
+  {
+   "id": "m6",
+   "nome": "rotunda · P6, logo depois da borda (B6-2 a B8; sai em 2:52 e sobe a rampa)",
+   "x": 0.37,
+   "z": -21.3,
+   "chega": 121.0,
+   "sai": 163.5
+  },
+  {
+   "id": "m7b",
+   "nome": "pé da rampa em espiral (começa a subir)",
+   "x": 5.671,
+   "z": -22.75,
+   "y": 0.1,
+   "chega": 174.02,
+   "sai": 174.02
+  },
+  {
+   "id": "m7c",
+   "nome": "subindo a rampa, seguindo a curva",
+   "x": 8.483,
+   "z": -25.997,
+   "y": 0.586,
+   "chega": 182.3,
+   "sai": 182.3
+  },
+  {
+   "id": "m7d",
+   "nome": "subindo a rampa, seguindo a curva",
+   "x": 9.471,
+   "z": -29.973,
+   "y": 1.071,
+   "chega": 190.2,
+   "sai": 190.2
+  },
+  {
+   "id": "m7e",
+   "nome": "subindo a rampa, seguindo a curva",
+   "x": 9.371,
+   "z": -33.843,
+   "y": 1.557,
+   "chega": 197.67,
+   "sai": 197.67
+  },
+  {
+   "id": "m7f",
+   "nome": "subindo a rampa, seguindo a curva",
+   "x": 7.886,
+   "z": -37.386,
+   "y": 2.042,
+   "chega": 205.09,
+   "sai": 205.09
+  },
+  {
+   "id": "m8",
+   "nome": "P7 · na rampa, ~2,5 m do chão, de frente para o HYDRA (chega 3:28.6)",
+   "x": 5.126,
+   "z": -40.057,
+   "y": 2.528,
+   "chega": 212.5,
+   "sai": null
+  }
+ ],
+ "olhares": [
+  {
+   "id": "o0",
+   "de": 0,
+   "ate": 7.5,
+   "alvo": [
+    0,
+    1.83,
+    -9.25
+   ],
+   "nome": "entrada: centrado, para frente, até 7,5 s"
+  },
+  {
+   "id": "o1",
+   "de": 7.5,
+   "ate": 15.8,
+   "alvo": [
+    -3.74,
+    2.39,
+    -4.55
+   ],
+   "nome": "os itens sendo depositados na mesa"
+  },
+  {
+   "id": "o2",
+   "de": 15.7,
+   "ate": 27.9,
+   "alvo": [
+    -0.66,
+    2.54,
+    -8.11
+   ],
+   "nome": "mira do voo"
+  },
+  {
+   "id": "o3",
+   "de": 163.5,
+   "ate": null,
+   "alvo": [
+    0,
+    4.2,
+    -32.0
+   ],
+   "nome": "da saída da rotunda até o fim: olhar fixo no plinto, onde o HYDRA vai aparecer"
+  },
+  {
+   "id": "o4",
+   "de": 47.8,
+   "ate": 58.2,
+   "alvo": [
+    0.1,
+    1.0,
+    -9.0
+   ],
+   "modo": "fixo",
+   "nome": "a hipótese: vira para a fileira de peças na mesa (placas e barras à frente, peças ao fundo)"
+  }
+ ],
+ "cenas": [
+  {
+   "id": "c1",
+   "de": 0,
+   "ate": 7.5,
+   "texto": "Cartaz de abertura (0:00–0:07.5), à frente de quem entra: emblema da NUS em relevo (.glb) em cima e, embaixo, o título \"Novel AI-Driven Hyperdimensional Regenerative Atlas for Screening CSCs Biological Performance\" + autores (C Sabino, A Grymak, N Silikas, V Rosa) em 3-D. Atrás deles, um quadro branco semitransparente (60%) que cobre emblema e título com margem nos 4 lados e só esfuma na borda. O conjunto balança de leve e o emblema gira ±8° para o relevo pegar luz. Em 7,5 s tudo some em fade e a peça começa a andar."
+  },
+  {
+   "id": "c2",
+   "de": 19.5,
+   "ate": 27.8,
+   "texto": "Em \"laboratories\" (0:19.6) entra a cápsula gbl22 (capsula-mta-repair-hp) deitada, no alto do centro da vista, girando devagar no próprio eixo com \"CEMENT\" sempre à vista. Em \"conclusions\" (0:22.5) entram, embaixo dela, as duas placas do inert&bioactive.glb — 14d à esquerda (inert), 31d à direita (bioactive) — num zoom in lento, em tamanho cheio em \"calling\" (0:24.2); enquanto elas chegam, a cápsula diminui um pouco. Sem halo. A ideia: o mesmo cimento, dois resultados possíveis. Na transição \"bioactive\" → \"Why\" (0:27.2–0:28.9) os três pousam devagar na mesa, em linha paralela à primeira fileira, na ordem cimento · inert · bioactive."
+  },
+  {
+   "id": "c3",
+   "de": 29.8,
+   "ate": 41.9,
+   "texto": "Trazer um a um, cada um no centro da vista na palavra dele: \"disc size\" (0:30.4) os discos ca3sio5-discs-5-10-15; \"extraction time\" (0:31.4) o timer de bancada (timer-bancada-tanita-style); \"volume\" (0:32.6) o gbl14 (falcon-50ml-rack). Quando o próximo entra, o anterior recua e vai para o seu canto (esquerda-topo, direita-topo, esquerda-baixo). Em \"cell passage\" (0:33.5) o gbl13 (dpsc-tripolar-old-cell) entra direto no seu canto (direita-baixo), sem passar pelo centro — os quatro formam um quadrado 2×2 do tamanho aparente de um elemento sozinho, mais ao fundo (atrás do elemento que entra no centro, sem se atravessarem). Em \"the biological\" (0:36.5) o quadrado vai para a esquerda e entra à direita o gbl30 (curvas-liberacao-3d), do mesmo tamanho do quadrado. Em \"assay\" (0:40.5) o gbl30 dissolve e os quatro pousam devagar na mesa (até 0:42.3), em linha paralela às outras fileiras, na ordem disco · timer · volume · célula. Tudo acompanha a vista enquanto a pessoa anda de P1 a P2."
+  },
+  {
+   "id": "c4",
+   "de": 48.4,
+   "ate": 58.0,
+   "texto": "A hipótese (0:48.4–0:58). A pessoa, parada em P2, vira para a fileira de peças na mesa. Em \"Our hypothesis\" (0:48.4) as duas placas do inert&bioactive entram à frente, lado a lado (inert à esquerda, bioactive à direita). Sobre cada uma cresce, dentro de um tubo de vidro fino, uma coluna: o MATERIAL são nódulos vermelhos de alizarina; o PROTOCOLO é ruído — uma nuvem de partículas cinzas tremendo. Na bioactive o ruído infla (nuvem empilhada em cima, resultado alto); na inert ele achata (nuvem apertando a coluna, resultado baixo). Sem número, eixo ou rótulo. Em \"separating\" (0:50.1) acendem linhas das colunas até as quatro peças da mesa e o ruído viaja por elas até as peças, que pulsam quando ele chega. Em \"would reveal\" (0:51.8) a coluna da inert cresce e a da bioactive fica — as duas terminam da MESMA altura: o pior resultado não era pior, era o mesmo material. Uma linha fina liga os dois topos e pulsa uma vez; a cápsula do cimento entra entre as placas e se liga às duas colunas (o material). Em \"regardless\" (0:55.0) tudo pulsa junto, uma vez. De 0:57.5 a 0:58 tudo some."
+  },
+  {
+   "id": "c5",
+   "de": 58.0,
+   "ate": 75.6,
+   "texto": "O desenho experimental (0:57.5–1:16), tudo acompanhando a vista enquanto a pessoa anda de P2 a P3: maquete com os 25 pontos no centro, quadro 4×3 dos fatores à esquerda, as 4 respostas à direita. \"To this end\" (0:57.5): o disco de cimento de referência (cement disc) entra sozinho no centro, girando. \"cell age\" (0:59.6): acendem as células P1 · P4 · P7 (membranas azul · rosa · laranja). \"disc surface area\" (1:00.5): discos 113 · 169 · 219 mm². \"medium volume\" (1:01.8): tubos 5 · 10 · 15 mL. \"elution time\" (1:03.0): relógios 24 · 72 · 120 h, e o disco de referência recua para o canto do quadro. \"25\" (1:04.9): os 25 pontos da maquete acendem em cascata e, a cada ponto, piscam junto as quatro peças da sua condição. \"alone\" (1:08.5): pulsam só as condições 4 e 23 (só a área do disco muda), ligadas por uma linha, e piscam os discos 169 e 219. \"in combination\" (1:09.4): todos os pontos e todo o quadro pulsam uma vez. À direita, na palavra de cada uma: proliferation (placa 7 d), mineralization (alizarina 28 d), migration (fenda quase fechada, sem o rótulo 72 h), safety (controle + g3 lado a lado). Tudo some em 1:15.6."
+  }
+ ],
+ "textos": {
+  "paradas": {
+   "m7b": "pé da rampa em espiral (começa a subir)",
+   "m7c": "subindo a rampa, seguindo a curva",
+   "m7d": "subindo a rampa, seguindo a curva",
+   "m7e": "subindo a rampa, seguindo a curva",
+   "m7f": "subindo a rampa, seguindo a curva",
+   "m8": "P7 · na rampa, ~2,5 m do chão, de frente para o HYDRA (chega 3:32.5)",
+   "m6": "rotunda · P6 (chega 1:57.3 bem devagar; sai em 2:43.5, \"To validate\", e sobe a rampa devagar)",
+   "m5": "P5 · depois da ponta da mesa; fica olhando o gráfico até o monólito se desfazer (sai 1:47.0)",
+   "m4": "diante do monólito · modelo; sai devagar em 1:19.6 (GPR), ~0,16 m/s"
+  },
+  "olhares": {
+   "o0": "entrada: centrado, para frente, até 7,5 s",
+   "o1": "os itens sendo depositados na mesa",
+   "o2": "mira do voo",
+   "o3": "da saída de P6 (2:43.5) até o fim (subindo a rampa, devagar): olhar fixo no HYDRA (centro a 4,2 m)"
+  },
+  "cenas": {
+   "c1": "Cartaz de abertura (0:00–0:07.5), à frente de quem entra: emblema da NUS em relevo (.glb) em cima e, embaixo, o título \"Novel AI-Driven Hyperdimensional Regenerative Atlas for Screening CSCs Biological Performance\" + autores (C Sabino, A Grymak, N Silikas, V Rosa) em 3-D. Atrás deles, um quadro branco semitransparente (60%) que cobre emblema e título com margem nos 4 lados e só esfuma na borda. O conjunto balança de leve e o emblema gira ±8° para o relevo pegar luz. Em 7,5 s tudo some em fade e a peça começa a andar.",
+   "c2": "Em \"laboratories\" (0:19.6) entra a cápsula gbl22 (capsula-mta-repair-hp) deitada, no alto do centro da vista, girando devagar no próprio eixo com \"CEMENT\" sempre à vista. Em \"conclusions\" (0:22.5) entram, embaixo dela, as duas placas do inert&bioactive.glb — 14d à esquerda (inert), 31d à direita (bioactive) — num zoom in lento, em tamanho cheio em \"calling\" (0:24.2); enquanto elas chegam, a cápsula diminui um pouco. Sem halo. A ideia: o mesmo cimento, dois resultados possíveis. Na transição \"bioactive\" → \"Why\" (0:27.2–0:28.9) os três pousam devagar na mesa, em linha paralela à primeira fileira, na ordem cimento · inert · bioactive.",
+   "c3": "Trazer um a um, cada um no centro da vista na palavra dele: \"disc size\" (0:30.4) os discos ca3sio5-discs-5-10-15; \"extraction time\" (0:31.4) o timer de bancada (timer-bancada-tanita-style); \"volume\" (0:32.6) o gbl14 (falcon-50ml-rack). Quando o próximo entra, o anterior recua e vai para o seu canto (esquerda-topo, direita-topo, esquerda-baixo). Em \"cell passage\" (0:33.5) o gbl13 (dpsc-tripolar-old-cell) entra direto no seu canto (direita-baixo), sem passar pelo centro — os quatro formam um quadrado 2×2 do tamanho aparente de um elemento sozinho, mais ao fundo (atrás do elemento que entra no centro, sem se atravessarem). Em \"the biological\" (0:36.5) o quadrado vai para a esquerda e entra à direita o gbl30 (curvas-liberacao-3d), do mesmo tamanho do quadrado. Em \"assay\" (0:40.5) o gbl30 dissolve e os quatro pousam devagar na mesa (até 0:42.3), em linha paralela às outras fileiras, na ordem disco · timer · volume · célula. Tudo acompanha a vista enquanto a pessoa anda de P1 a P2.",
+   "c4": "A hipótese (0:48.4–0:58). A pessoa, parada em P2, vira para a fileira de peças na mesa. Em \"Our hypothesis\" (0:48.4) as duas placas do inert&bioactive entram à frente, lado a lado (inert à esquerda, bioactive à direita). Sobre cada uma cresce, dentro de um tubo de vidro fino, uma coluna: o MATERIAL são nódulos vermelhos de alizarina; o PROTOCOLO é ruído — uma nuvem de partículas cinzas tremendo. Na bioactive o ruído infla (nuvem empilhada em cima, resultado alto); na inert ele achata (nuvem apertando a coluna, resultado baixo). Sem número, eixo ou rótulo. Em \"separating\" (0:50.1) acendem linhas das colunas até as quatro peças da mesa e o ruído viaja por elas até as peças, que pulsam quando ele chega. Em \"would reveal\" (0:51.8) a coluna da inert cresce e a da bioactive fica — as duas terminam da MESMA altura: o pior resultado não era pior, era o mesmo material. Uma linha fina liga os dois topos e pulsa uma vez; a cápsula do cimento entra entre as placas e se liga às duas colunas (o material). Em \"regardless\" (0:55.0) tudo pulsa junto, uma vez. De 0:57.5 a 0:58 tudo some. No fim (0:57.5–0:59.5) as duas placas, com as colunas (tubos com os nódulos, agora da mesma altura), e a cápsula NÃO somem: pousam na mesa (placas a 70 %), numa fileira logo atrás da fileira do relógio (z −9,55), e ficam lá.",
+   "c5": "O desenho experimental (0:57.5–1:16), tudo acompanhando a vista enquanto a pessoa anda de P2 a P3: a MAQUETE-CUBO (aresta 45 cm, só as arestas em tinta) no centro, quadro 4×3 dos fatores à esquerda, as 4 respostas à direita. \"To this end\" (0:57.5): a maquete aparece no centro com as 25 condições como 25 contas IGUAIS (esferas de metal cinza polido, 2,5 cm) numa grade 5×5 no piso. Cada fator, quando dito, acende uma linha do quadro E acorda um canal nas 25 contas ao mesmo tempo: \"cell age\" (0:59.6) células P1·P4·P7 → COR (P1 azul-claro, P4 rosa, P7 laranja — as membranas das células); \"disc surface area\" (1:00.5) discos 113·169·219 mm² → TAMANHO (3,0 · 3,7 · 4,2 cm); \"medium volume\" (1:01.8) tubos 5·10·15 mL → ACABAMENTO (polido · escovado · jateado); \"elution time\" (1:03.0) relógios 24·72·120 h → FORMA (esfera · octaedro · tetraedro). \"25\" (1:04.9): os 25 objetos sobem do piso para a posição 3-D (x = área, y = tempo, z = volume; a passagem desloca ±25 % pela diagonal — os pares 1/12, 3/17, 4/14, 5/18, 15/16 ficam lado a lado, iguais em tudo menos na cor), em cascata de 1,5 s; quando cada um chega, piscam no quadro as quatro peças da sua condição. \"alone\" (1:08.5): g4 e g23 pulsam, ligados por uma linha fina (mudam só tamanho e posição x), e piscam os discos 169 e 219. \"in combination\" (1:09.4): os 25 e todo o quadro pulsam uma vez. À direita, na palavra de cada uma: proliferation (placa 7 d), mineralization (alizarina 28 d), migration (fenda quase fechada, sem o rótulo 72 h), safety (controle + g3). Em 1:15.6 o quadro 4×3 e as 4 respostas POUSAM na mesa (1,8 s, inclinação a zero, com sombra de contato), em fileiras perto de P3 — a mesa fica cheia; a maquete desce para o centro-baixo da vista para B5. Metal: sonda de ambiente da sala (a da nave; na rotunda, a da rotunda), o sol aparece como brilho nas faces. Beat opcional do framework (0:42.3–0:48.0): a maquete vazia, pequena, no fundo da vista (?framework=0 desliga).",
+   "c3b": "\"Therefore, we developed a framework\" (0:42.3–0:48.0): a maquete-cubo aparece pela PRIMEIRA vez, vazia (só as 12 arestas, sem contas), pequena (30 cm) no fundo da vista, e some antes de \"Our hypothesis\" — um anúncio do que vem em B3-4. Sem tesserato. Desliga com ?framework=0 (pendência 1 do E7).",
+   "c6": "B5 — o modelo (1:15.6–1:30.6), parado em m4: a maquete (25 objetos) no centro-baixo da vista; atrás dela, na altura do olho, em arco, os quatro modelos de ML (glb do Vinicius, ~64 cm cada, virados para quem olha), da esquerda para a direita GPR · GB · RF · XGB, em SILHUETA (15 %) a partir de \"HYDRA then uses\" (1:15.6); pulsam juntos em \"an ensemble\" (1:16.9). \"Gaussian Process Regression\" (1:19.6): observation_1…6 acendem (0,1 s cada) → posterior_sample_1…4 em leque → mean_function → a faixa uncertainty_2sigma. \"Gradient Boosting\" (1:21.6): tree_1→4 EM SEQUÊNCIA, cada sum_node entre elas, additive_path + arrow_head até final_prediction. \"Random Forest\" (1:22.8): as 6 árvores acendem TODAS JUNTAS (paralelo — o contraste com o boosting), o predicted_leaf de cada uma brilha, votos descem pelo center_stem até mean_prediction. \"XGBoost\" (1:24.4): tree_1→5 em sequência, pruned_leaf/pruned_edge ESMAECEM (a poda), add_link → sum_node → final_prediction. \"to integrate\" (1:25.6): das quatro saídas saem quatro feixes de luz de MESMA espessura até um ponto sobre a maquete (pesos iguais). \"four-dimensional response surface\" (1:28.2): um campo de cor translúcido (20 %, cor = proliferação prevista) se espalha entre os 25 objetos, dentro do cubo — não é tesserato. 1:29.2: os modelos e feixes apagam; a maquete (objetos + campo) POUSA no fim do tampo da mesa (1,3 s), com sombra de contato, e fica lá.",
+   "c7": "B6 — a prova da dissociação (1:30.0–1:46.6), no monólito, SÓ o monólito (D-397: sem glb — os discos, relógio, tubo, célula e os metálicos g4/g23 saíram; ênfase nos resultados): o CAMPO acende (1:30.0) e nele o gráfico em retrato: \"TWO OF THE 25 CONDITIONS\" (1:30.4) · \"24 h · 15 mL · P4 — identical\" (1:33.1) · \"only the disc differs: 169 → 219 mm²\" (1:34.5). Barras (169 tinta · 219 laranja, valores do ATLAS.groups): \"mineralization\" (1:37.6) ARS 12,5 → 16,7 ▲ · \"migration\" (1:39.3) µm/h 1,78 → 1,50 ▼ · \"proliferation unchanged\" (1:41.1) WST-1 AUC 3,75 → 3,88 =. \"Each biological property follows its own trajectory\" (1:43.4): as três linhas realçam uma a uma. 1:46.3 tudo sai, antes de a pedra dissolver. Olhar sugerido o6 (1:36.3–1:46.6) no gráfico. Olhar fixo no gráfico do monólito de 1:12 até 1:47 (sem virada). A pessoa sai de P4 em 1:19.6, muito devagar (~0,2 m/s), numa curva suave (segue reto e abre para o eixo) até P5 (1:37.5), depois da ponta da mesa (8,8 m). A maquete, ao fim de B5, pára À VISTA, flutuando ~1,9 m à frente de P5, abaixo do gráfico.",
+   "c8": "B6-2 (1:46.6–2:18.35). Silêncio: a pedra do monólito dissolve; a pessoa só sai de P5 quando o monólito se desfaz (1:47.0) e entra na rotunda devagar (P6, logo depois da borda, 2:01.0; pico 0,67 m/s); os discos já saem enquanto ela anda, na posição final; a maquete LEVANTA do fim da mesa e voa até o plinto (1:46.6–1:50.0), onde fica CUBO — cresce para 1,2 m de aresta, arestas de ~2 cm, os 25 objetos dentro, flutuando a 4,2 m; ainda NÃO é o HYDRA. OS DISCOS POLARES do lab (drawCymatic, K = 1, sem números), PALCO + FILEIRA (prompt v2, D-111): \"HYDRA reveals\" (1:55.2) quatro discos saem de dentro do cubo e vão para uma FILEIRA pequena abaixo da vista, a 2,2 m (PROLIFERATION · MINERALIZATION · MIGRATION · SAFETY; raio 0,18; brilho 55 %; nome embaixo). No máximo DOIS no PALCO (raio 0,55, na altura do olho), transições de 0,8 s; pílulas de eixo só no palco. \"proliferation and migration by cell maturity\" (2:01.0): Proliferation à esquerda e Migration à direita sobem ao palco; +0,8 s anéis do centro para a borda nos dois; young cells / aged cells; os objetos do cubo brilham na cor da passagem. \"mineralization by disc surface area\" (2:04.4): os dois descem; Mineralization sozinho; a onda corre em volta (ângulo = área); larger disc / smaller disc; as arestas de ÁREA do cubo tingem de verde-água e os objetos pulsam pelo tamanho. \"viability by elution time\" (2:07.7): Safety sozinho; onda do centro à borda; short / long extraction; as arestas de TEMPO do cubo tingem de âmbar. 2:08.7 Migration troca para o raio de tempo ainda na fileira. \"Because these drivers are decoupled\" (2:10.0): Safety à direita e Migration à esquerda, a mesma onda e as mesmas pílulas short / long nos dois. \"no protocol can simultaneously optimize\" (2:12.49): acendem as ZONAS DE MELHOR (vN ≥ 0,80, normalizado na fatia, contorno branco, fora a 35 %) — \"best migration\" e \"best safety\"; 2:13.7 os dois deslizam ao centro e se SOBREPÕEM: mapas a 15 %, só as zonas acesas — elas não se tocam. Sem seta, sem ◊, sem números. \"readouts\" termina (2:17.15): cada disco voa para um canto do cubo e encolhe; no encontro (2:18.35) as doze arestas acendem em branco e o cubo se DESDOBRA no tesserato verdadeiro do lab.html (2:18.35–2:19.85) e cresce até ~3,4 m (2:21.85) — agora é o HYDRA. Olhar sugerido o8 nos discos (1:56.0–2:17.15), depois o9 no HYDRA.",
+   "c9": "B7 — sinal e ruído (2:18.4–2:42.4), dentro do tesserato: o HYDRA termina de se formar em 2:21.85; então um halo verde-água desliza pela superfície e para entre os objetos; ali acende um traço (o valor predito, sem número). \"each combination\" (2:23.6): os 25 objetos piscam em sequência rápida (0,05 s cada). \"a reference cement\" (2:27.1): a cápsula gbl22 (o mesmo cimento da c2 e da hipótese, sem marca) aparece pequena, flutuando junto ao halo. \"matches HYDRA's prediction\" (2:30.1): a SONDA da legenda (o mesmo ponto que o espectador acompanhou) é levada para DENTRO do halo e fica — quando o ponto está ali, é o protocolo. \"beyond this prediction\" (2:38.4): a sonda volta a passear dentro do HYDRA, um anel âmbar fecha em volta dela e uma linha âmbar do halo até ela mostra a distância — o efeito próprio do material. 2:42.4: halo e cápsula somem; a sonda some em \"To validate\" (2:43.2). CORES: de 2:23.0 a 2:33.0 o HYDRA passa pelas quatro propriedades (2,5 s cada) com a legenda ao lado; depois devagar (8 s) com a legenda ao lado — o espectador aprende as cores primeiro; depois devagar (8 s cada) até \"To validate\". LEGENDA (à direita do HYDRA, só depois da placa do plinto: 2:23.0 até \"To validate\" 2:43.2, e de novo em B9 de 3:22.85 a 3:38): uma sonda — ponto branco com aro pulsante — passeia dentro do HYDRA, ligada por um fio a uma barra de cor; a seta e o quadradinho mostram o valor e a cor previstos no ponto; na troca de propriedade a barra escorre para a escala nova. Sem números.",
+   "c10": "B8 — validação externa (2:43.2–3:16.3), o HYDRA fica no plinto (centro a 4,2 m); a pessoa sai de P6 em 2:43.5 (\"To validate\") e sobe a rampa devagar (~0,5 m/s) até P7 (3:32.5), olhando o HYDRA. \"To validate HYDRA\" (2:43.2) os 25 objetos DESSATURAM para metal cinza, 70 % transparentes — a cor passa a ser dos materiais. \"two cements unseen during training\" (2:44.8): ao lado do HYDRA (onde estava a legenda), em coluna, GRANDES (~1 m): só os DOIS cimentos — capsule_cement_a (tampa VERDE = Exp 1) e capsule_cement_b (tampa azul-marinho = Exp 2); saem em \"Because HYDRA\" (2:49.9). \"three protocols\" (2:48.0): as 3 posições (early · mid · late) acendem, 3 esferas em cada, LADO A LADO (Exp 1 · referência · Exp 2, 0,2 entre centros — não se fundem). \"does not care about chemistry\" (2:50.6): as três de cada posição pulsam juntas, BRANCAS. \"prediction for both cements\" (2:54.3): um halo por posição, igual para os três. \"In cell growth\" (2:56.3): face PROLIFERATION; as esferas ganham a cor do material. \"followed the predicted surface\" (2:59.1): referência sobre a superfície nas três; Exp 2 sobre em early/mid e um pouco abaixo em late (−2,6 σ); a LINHA DE REFERÊNCIA (branca, grossa) liga as três posições e FICA (\"uma é o padrão\"); um corredor a percorre nos primeiros 3 s. \"fewer cells\" (3:04.8): as três do Exp 1 DESCEM, cada vez mais fundo (−2,1 · −2,9 · −4,4 σ; 0,25 m + 0,20 m por σ além da banda, ilustrativo) e uma SEGUNDA LINHA, LARANJA (a cor do desvio; as esferas do Exp 1 continuam verdes como a tampa), liga as três do Exp 1 (\"a outra desvia\"). \"under every protocol\" (3:06.3): as três do Exp 1 pulsam juntas. \"arise from the protocol\" (3:10.7): a superfície brilha. \"the material's biological behavior\" (3:13.5): anéis dourados nas três do Exp 1. As cores de passagem nunca são usadas para os materiais. Todos os pontos ficam DENTRO do HYDRA (puxados para o centro no 4-D; a descida do Exp 1 não atravessa a casca). Marcadores: esferas com matéria (cerâmica fosca, microporosa), DENTRO do HYDRA; haste do halo previsto até cada esfera, vermelha fora de ±2σ. Em \"To validate\" o HYDRA fica em proliferação.",
+   "c11": "B9 — fecho (3:16.3–3:43.1). \"a reference surface\" (3:17.7) esferas, linhas e cápsulas somem, os 25 objetos voltam às suas cores, o campo brilha uma vez; o HYDRA passa rápido pelas quatro propriedades (~1,3 s cada) e volta a PROLIFERAÇÃO. \"For biomaterial research\" (3:22.85): voltam a LEGENDA (com a sonda) e as DUAS LINHAS de B8 — a branca da referência e a laranja do Exp 1 (desvio), com as esferas; o HYDRA fica em proliferação (as esferas são dados de crescimento). \"the material itself\" (3:30.46): ÊNFASE na legenda (cresce 14 %) e a cápsula gbl22 entra AO LADO dela (à direita do HYDRA = o material). \"or the testing protocol\" (3:31.37): ÊNFASE nas linhas (mais grossas; a legenda baixa) e à ESQUERDA do HYDRA entram os quatro elementos do PROTOCOLO — discos 5·10·15, timer, tubos, célula. Sem placas de Petri. \"how the researcher chooses to run the test\" (3:34.5): as quatro famílias de arestas pulsam uma a uma, SA · ET · EV · CP. \"a foundation\" (3:38.0): tudo ao redor sai; GRAND FINALE — o HYDRA ACELERA o giro 4-D e CRESCE (4,5×, ease-in) vindo na direção de quem olha até ENGOLIR a pessoa; as quatro famílias de arestas acendem juntas, as 25 condições brilham na cor da passagem; o escuro chega com a pessoa dentro dele (3:42.7–3:43.1). A placa no plinto — \"Actual representation of HYDRA, reconstructed from 25 experimental groups\" — aparece SOZINHA, sem a legenda: no desdobramento (2:18.8–2:22.4) e em \"a reference surface\" (3:16.3–3:22.4) (uma face voltada para P6, outra para P7).",
+   "c12": "FIM (3:43.2–3:49.3): tela PRETA \"Thank you for watching\" à frente de quem olha, na altura do olho, a 2,8 m — embaixo o emblema da NUS (o .glb do cartaz), o título e os autores (o .glb do cartaz) \"Presenter: Clarice F. Sabino\" e \"VR prepared by Vinicius Rosa\"; o emblema mais claro (luz + auto-iluminação). Entra em 0,8 s, sai nos últimos 0,6 s; depois o loop volta ao cartaz. A peça passou de 3:43 para 3:49 (o cartão de duração acompanha)."
+  },
+  "alvos": {
+   "o3": [
+    0,
+    4.2,
+    -32.0
+   ],
+   "o5": [
+    0,
+    4.2,
+    -32.0
+   ]
+  },
+  "paradasRemover": [
+   "m7",
+   "m4b"
+  ],
+  "paradasAjuste": {
+   "m5": {
+    "x": 0.3,
+    "z": -14.0,
+    "chega": 97.5,
+    "sai": 107.0
+   },
+   "m6": {
+    "z": -21.3,
+    "sai": 163.5,
+    "chega": 121.0
+   },
+   "m7b": {
+    "chega": 174.02,
+    "sai": 174.02
+   },
+   "m7c": {
+    "chega": 182.3,
+    "sai": 182.3
+   },
+   "m7d": {
+    "chega": 190.2,
+    "sai": 190.2
+   },
+   "m7e": {
+    "chega": 197.67,
+    "sai": 197.67
+   },
+   "m7f": {
+    "chega": 205.09,
+    "sai": 205.09
+   },
+   "m4": {
+    "sai": 79.6
+   },
+   "m1": {
+    "chega": 17.0
+   },
+   "m8": {
+    "chega": 212.5
+   }
+  },
+  "cenasAjuste": {
+   "c5": {
+    "de": 58.0
+   },
+   "c6": {
+    "ate": 90.0
+   },
+   "c8": {
+    "ate": 138.35
+   },
+   "c11": {
+    "ate": 223.1
+   }
+  },
+  "olharesAjuste": {
+   "o3": {
+    "de": 163.5,
+    "alvo": [
+     0,
+     4.2,
+     -32.0
+    ]
+   },
+   "o5": {
+    "de": 107.0,
+    "ate": 117.5,
+    "alvo": [
+     0,
+     4.2,
+     -32.0
+    ]
+   },
+   "o8": {
+    "de": 117.5,
+    "ate": 137.15,
+    "alvo": [
+     0.29,
+     1.35,
+     -23.5
+    ]
+   },
+   "o9": {
+    "de": 137.15,
+    "ate": 163.5,
+    "alvo": [
+     0,
+     4.2,
+     -32.0
+    ]
+   },
+   "o6": {
+    "de": 72.0,
+    "ate": 107.0,
+    "trans": 3.0,
+    "alvo": [
+     0,
+     2.3,
+     -19.0
+    ]
+   }
+  },
+  "paradasNovas": [
+   {
+    "depois": "m4",
+    "id": "m4c",
+    "nome": "passagem P4→P5 (segue reto, como vinha de P3)",
+    "x": 1.85,
+    "z": -12.5,
+    "chega": 84.69,
+    "sai": 84.69
+   },
+   {
+    "depois": "m4c",
+    "id": "m4d",
+    "nome": "passagem P4→P5 (abre suave para o eixo do monólito)",
+    "x": 1.0,
+    "z": -13.5,
+    "chega": 92.43,
+    "sai": 92.43
+   }
+  ]
+ },
+ "textosRev": "M-2026-09-27-t23",
+ "novos": {
+  "olhares": [
+   {
+    "id": "o4",
+    "de": 47.8,
+    "ate": 58.2,
+    "alvo": [
+     0.1,
+     1.0,
+     -9.0
+    ],
+    "modo": "fixo",
+    "nome": "a hipótese: vira para a fileira de peças na mesa (placas e barras à frente, peças ao fundo)"
+   },
+   {
+    "id": "o6",
+    "tipo": "ponto",
+    "de": 72.0,
+    "ate": 107.0,
+    "alvo": [
+     0,
+     2.3,
+     -19.0
+    ],
+    "modo": "fixo",
+    "trans": 3.0,
+    "nome": "B6: o gráfico no campo do monólito (sugestão da M — continua o seu bloco de 1:29.1–1:36.2; mude à vontade)"
+   },
+   {
+    "id": "o5",
+    "tipo": "ponto",
+    "de": 107.0,
+    "ate": 117.5,
+    "alvo": [
+     0,
+     4.2,
+     -32.0
+    ],
+    "modo": "fixo",
+    "trans": 2.0,
+    "nome": "B6-2 a B8: o HYDRA no plinto (sugestão da M — o tesserato nasce ali em 1:50; mude à vontade)"
+   },
+   {
+    "id": "o8",
+    "tipo": "ponto",
+    "de": 117.5,
+    "ate": 137.15,
+    "alvo": [
+     0.29,
+     1.35,
+     -23.5
+    ],
+    "modo": "fixo",
+    "trans": 1.5,
+    "nome": "B6-2: os quatro discos polares, à frente (sugestão da M)"
+   },
+   {
+    "id": "o9",
+    "tipo": "ponto",
+    "de": 137.15,
+    "ate": 163.5,
+    "alvo": [
+     0,
+     4.2,
+     -32.0
+    ],
+    "modo": "fixo",
+    "trans": 2.0,
+    "nome": "B7-B8: o HYDRA no plinto (sugestão da M)"
+   }
+  ],
+  "cenas": [
+   {
+    "id": "c4",
+    "de": 48.4,
+    "ate": 58.0,
+    "texto": "A hipótese (0:48.4–0:58). A pessoa, parada em P2, vira para a fileira de peças na mesa. Em \"Our hypothesis\" (0:48.4) as duas placas do inert&bioactive entram à frente, lado a lado (inert à esquerda, bioactive à direita). Sobre cada uma cresce, dentro de um tubo de vidro fino, uma coluna: o MATERIAL são nódulos vermelhos de alizarina; o PROTOCOLO é ruído — uma nuvem de partículas cinzas tremendo. Na bioactive o ruído infla (nuvem empilhada em cima, resultado alto); na inert ele achata (nuvem apertando a coluna, resultado baixo). Sem número, eixo ou rótulo. Em \"separating\" (0:50.1) acendem linhas das colunas até as quatro peças da mesa e o ruído viaja por elas até as peças, que pulsam quando ele chega. Em \"would reveal\" (0:51.8) a coluna da inert cresce e a da bioactive fica — as duas terminam da MESMA altura: o pior resultado não era pior, era o mesmo material. Uma linha fina liga os dois topos e pulsa uma vez; a cápsula do cimento entra entre as placas e se liga às duas colunas (o material). Em \"regardless\" (0:55.0) tudo pulsa junto, uma vez. De 0:57.5 a 0:58 tudo some. No fim (0:57.5–0:59.5) as duas placas, com as colunas (tubos com os nódulos, agora da mesma altura), e a cápsula NÃO somem: pousam na mesa (placas a 70 %), numa fileira logo atrás da fileira do relógio (z −9,55), e ficam lá."
+   },
+   {
+    "id": "c5",
+    "de": 58.0,
+    "ate": 75.6,
+    "texto": "O desenho experimental (0:57.5–1:16), tudo acompanhando a vista enquanto a pessoa anda de P2 a P3: a MAQUETE-CUBO (aresta 45 cm, só as arestas em tinta) no centro, quadro 4×3 dos fatores à esquerda, as 4 respostas à direita. \"To this end\" (0:57.5): a maquete aparece no centro com as 25 condições como 25 contas IGUAIS (esferas de metal cinza polido, 2,5 cm) numa grade 5×5 no piso. Cada fator, quando dito, acende uma linha do quadro E acorda um canal nas 25 contas ao mesmo tempo: \"cell age\" (0:59.6) células P1·P4·P7 → COR (P1 azul-claro, P4 rosa, P7 laranja — as membranas das células); \"disc surface area\" (1:00.5) discos 113·169·219 mm² → TAMANHO (3,0 · 3,7 · 4,2 cm); \"medium volume\" (1:01.8) tubos 5·10·15 mL → ACABAMENTO (polido · escovado · jateado); \"elution time\" (1:03.0) relógios 24·72·120 h → FORMA (esfera · octaedro · tetraedro). \"25\" (1:04.9): os 25 objetos sobem do piso para a posição 3-D (x = área, y = tempo, z = volume; a passagem desloca ±25 % pela diagonal — os pares 1/12, 3/17, 4/14, 5/18, 15/16 ficam lado a lado, iguais em tudo menos na cor), em cascata de 1,5 s; quando cada um chega, piscam no quadro as quatro peças da sua condição. \"alone\" (1:08.5): g4 e g23 pulsam, ligados por uma linha fina (mudam só tamanho e posição x), e piscam os discos 169 e 219. \"in combination\" (1:09.4): os 25 e todo o quadro pulsam uma vez. À direita, na palavra de cada uma: proliferation (placa 7 d), mineralization (alizarina 28 d), migration (fenda quase fechada, sem o rótulo 72 h), safety (controle + g3). Em 1:15.6 o quadro 4×3 e as 4 respostas POUSAM na mesa (1,8 s, inclinação a zero, com sombra de contato), em fileiras perto de P3 — a mesa fica cheia; a maquete desce para o centro-baixo da vista para B5. Metal: sonda de ambiente da sala (a da nave; na rotunda, a da rotunda), o sol aparece como brilho nas faces. Beat opcional do framework (0:42.3–0:48.0): a maquete vazia, pequena, no fundo da vista (?framework=0 desliga)."
+   },
+   {
+    "id": "c3b",
+    "de": 42.3,
+    "ate": 48.0,
+    "texto": "\"Therefore, we developed a framework\" (0:42.3–0:48.0): a maquete-cubo aparece pela PRIMEIRA vez, vazia (só as 12 arestas, sem contas), pequena (30 cm) no fundo da vista, e some antes de \"Our hypothesis\" — um anúncio do que vem em B3-4. Sem tesserato. Desliga com ?framework=0 (pendência 1 do E7)."
+   },
+   {
+    "id": "c6",
+    "de": 75.6,
+    "ate": 90.0,
+    "texto": "B5 — o modelo (1:15.6–1:30.6), parado em m4: a maquete (25 objetos) no centro-baixo da vista; atrás dela, na altura do olho, em arco, os quatro modelos de ML (glb do Vinicius, ~64 cm cada, virados para quem olha), da esquerda para a direita GPR · GB · RF · XGB, em SILHUETA (15 %) a partir de \"HYDRA then uses\" (1:15.6); pulsam juntos em \"an ensemble\" (1:16.9). \"Gaussian Process Regression\" (1:19.6): observation_1…6 acendem (0,1 s cada) → posterior_sample_1…4 em leque → mean_function → a faixa uncertainty_2sigma. \"Gradient Boosting\" (1:21.6): tree_1→4 EM SEQUÊNCIA, cada sum_node entre elas, additive_path + arrow_head até final_prediction. \"Random Forest\" (1:22.8): as 6 árvores acendem TODAS JUNTAS (paralelo — o contraste com o boosting), o predicted_leaf de cada uma brilha, votos descem pelo center_stem até mean_prediction. \"XGBoost\" (1:24.4): tree_1→5 em sequência, pruned_leaf/pruned_edge ESMAECEM (a poda), add_link → sum_node → final_prediction. \"to integrate\" (1:25.6): das quatro saídas saem quatro feixes de luz de MESMA espessura até um ponto sobre a maquete (pesos iguais). \"four-dimensional response surface\" (1:28.2): um campo de cor translúcido (20 %, cor = proliferação prevista) se espalha entre os 25 objetos, dentro do cubo — não é tesserato. 1:29.2: os modelos e feixes apagam; a maquete (objetos + campo) POUSA no fim do tampo da mesa (1,3 s), com sombra de contato, e fica lá."
+   },
+   {
+    "id": "c7",
+    "de": 90.0,
+    "ate": 106.6,
+    "texto": "B6 — a prova da dissociação (1:30.0–1:46.6), no monólito, SÓ o monólito (D-397: sem glb — os discos, relógio, tubo, célula e os metálicos g4/g23 saíram; ênfase nos resultados): o CAMPO acende (1:30.0) e nele o gráfico em retrato: \"TWO OF THE 25 CONDITIONS\" (1:30.4) · \"24 h · 15 mL · P4 — identical\" (1:33.1) · \"only the disc differs: 169 → 219 mm²\" (1:34.5). Barras (169 tinta · 219 laranja, valores do ATLAS.groups): \"mineralization\" (1:37.6) ARS 12,5 → 16,7 ▲ · \"migration\" (1:39.3) µm/h 1,78 → 1,50 ▼ · \"proliferation unchanged\" (1:41.1) WST-1 AUC 3,75 → 3,88 =. \"Each biological property follows its own trajectory\" (1:43.4): as três linhas realçam uma a uma. 1:46.3 tudo sai, antes de a pedra dissolver. Olhar sugerido o6 (1:36.3–1:46.6) no gráfico. Olhar fixo no gráfico do monólito de 1:12 até 1:47 (sem virada). A pessoa sai de P4 em 1:19.6, muito devagar (~0,2 m/s), numa curva suave (segue reto e abre para o eixo) até P5 (1:37.5), depois da ponta da mesa (8,8 m). A maquete, ao fim de B5, pára À VISTA, flutuando ~1,9 m à frente de P5, abaixo do gráfico."
+   },
+   {
+    "id": "c8",
+    "de": 106.6,
+    "ate": 138.35,
+    "texto": "B6-2 (1:46.6–2:18.35). Silêncio: a pedra do monólito dissolve; a pessoa só sai de P5 quando o monólito se desfaz (1:47.0) e entra na rotunda devagar (P6, logo depois da borda, 2:01.0; pico 0,67 m/s); os discos já saem enquanto ela anda, na posição final; a maquete LEVANTA do fim da mesa e voa até o plinto (1:46.6–1:50.0), onde fica CUBO — cresce para 1,2 m de aresta, arestas de ~2 cm, os 25 objetos dentro, flutuando a 4,2 m; ainda NÃO é o HYDRA. OS DISCOS POLARES do lab (drawCymatic, K = 1, sem números), PALCO + FILEIRA (prompt v2, D-111): \"HYDRA reveals\" (1:55.2) quatro discos saem de dentro do cubo e vão para uma FILEIRA pequena abaixo da vista, a 2,2 m (PROLIFERATION · MINERALIZATION · MIGRATION · SAFETY; raio 0,18; brilho 55 %; nome embaixo). No máximo DOIS no PALCO (raio 0,55, na altura do olho), transições de 0,8 s; pílulas de eixo só no palco. \"proliferation and migration by cell maturity\" (2:01.0): Proliferation à esquerda e Migration à direita sobem ao palco; +0,8 s anéis do centro para a borda nos dois; young cells / aged cells; os objetos do cubo brilham na cor da passagem. \"mineralization by disc surface area\" (2:04.4): os dois descem; Mineralization sozinho; a onda corre em volta (ângulo = área); larger disc / smaller disc; as arestas de ÁREA do cubo tingem de verde-água e os objetos pulsam pelo tamanho. \"viability by elution time\" (2:07.7): Safety sozinho; onda do centro à borda; short / long extraction; as arestas de TEMPO do cubo tingem de âmbar. 2:08.7 Migration troca para o raio de tempo ainda na fileira. \"Because these drivers are decoupled\" (2:10.0): Safety à direita e Migration à esquerda, a mesma onda e as mesmas pílulas short / long nos dois. \"no protocol can simultaneously optimize\" (2:12.49): acendem as ZONAS DE MELHOR (vN ≥ 0,80, normalizado na fatia, contorno branco, fora a 35 %) — \"best migration\" e \"best safety\"; 2:13.7 os dois deslizam ao centro e se SOBREPÕEM: mapas a 15 %, só as zonas acesas — elas não se tocam. Sem seta, sem ◊, sem números. \"readouts\" termina (2:17.15): cada disco voa para um canto do cubo e encolhe; no encontro (2:18.35) as doze arestas acendem em branco e o cubo se DESDOBRA no tesserato verdadeiro do lab.html (2:18.35–2:19.85) e cresce até ~3,4 m (2:21.85) — agora é o HYDRA. Olhar sugerido o8 nos discos (1:56.0–2:17.15), depois o9 no HYDRA."
+   },
+   {
+    "id": "c9",
+    "de": 138.4,
+    "ate": 162.4,
+    "texto": "B7 — sinal e ruído (2:18.4–2:42.4), dentro do tesserato: o HYDRA termina de se formar em 2:21.85; então um halo verde-água desliza pela superfície e para entre os objetos; ali acende um traço (o valor predito, sem número). \"each combination\" (2:23.6): os 25 objetos piscam em sequência rápida (0,05 s cada). \"a reference cement\" (2:27.1): a cápsula gbl22 (o mesmo cimento da c2 e da hipótese, sem marca) aparece pequena, flutuando junto ao halo. \"matches HYDRA's prediction\" (2:30.1): a SONDA da legenda (o mesmo ponto que o espectador acompanhou) é levada para DENTRO do halo e fica — quando o ponto está ali, é o protocolo. \"beyond this prediction\" (2:38.4): a sonda volta a passear dentro do HYDRA, um anel âmbar fecha em volta dela e uma linha âmbar do halo até ela mostra a distância — o efeito próprio do material. 2:42.4: halo e cápsula somem; a sonda some em \"To validate\" (2:43.2). CORES: de 2:23.0 a 2:33.0 o HYDRA passa pelas quatro propriedades (2,5 s cada) com a legenda ao lado; depois devagar (8 s) com a legenda ao lado — o espectador aprende as cores primeiro; depois devagar (8 s cada) até \"To validate\". LEGENDA (à direita do HYDRA, só depois da placa do plinto: 2:23.0 até \"To validate\" 2:43.2, e de novo em B9 de 3:22.85 a 3:38): uma sonda — ponto branco com aro pulsante — passeia dentro do HYDRA, ligada por um fio a uma barra de cor; a seta e o quadradinho mostram o valor e a cor previstos no ponto; na troca de propriedade a barra escorre para a escala nova. Sem números."
+   },
+   {
+    "id": "c10",
+    "de": 163.2,
+    "ate": 196.3,
+    "texto": "B8 — validação externa (2:43.2–3:16.3), o HYDRA fica no plinto (centro a 4,2 m); a pessoa sai de P6 em 2:43.5 (\"To validate\") e sobe a rampa devagar (~0,5 m/s) até P7 (3:32.5), olhando o HYDRA. \"To validate HYDRA\" (2:43.2) os 25 objetos DESSATURAM para metal cinza, 70 % transparentes — a cor passa a ser dos materiais. \"two cements unseen during training\" (2:44.8): ao lado do HYDRA (onde estava a legenda), em coluna, GRANDES (~1 m): só os DOIS cimentos — capsule_cement_a (tampa VERDE = Exp 1) e capsule_cement_b (tampa azul-marinho = Exp 2); saem em \"Because HYDRA\" (2:49.9). \"three protocols\" (2:48.0): as 3 posições (early · mid · late) acendem, 3 esferas em cada, LADO A LADO (Exp 1 · referência · Exp 2, 0,2 entre centros — não se fundem). \"does not care about chemistry\" (2:50.6): as três de cada posição pulsam juntas, BRANCAS. \"prediction for both cements\" (2:54.3): um halo por posição, igual para os três. \"In cell growth\" (2:56.3): face PROLIFERATION; as esferas ganham a cor do material. \"followed the predicted surface\" (2:59.1): referência sobre a superfície nas três; Exp 2 sobre em early/mid e um pouco abaixo em late (−2,6 σ); a LINHA DE REFERÊNCIA (branca, grossa) liga as três posições e FICA (\"uma é o padrão\"); um corredor a percorre nos primeiros 3 s. \"fewer cells\" (3:04.8): as três do Exp 1 DESCEM, cada vez mais fundo (−2,1 · −2,9 · −4,4 σ; 0,25 m + 0,20 m por σ além da banda, ilustrativo) e uma SEGUNDA LINHA, LARANJA (a cor do desvio; as esferas do Exp 1 continuam verdes como a tampa), liga as três do Exp 1 (\"a outra desvia\"). \"under every protocol\" (3:06.3): as três do Exp 1 pulsam juntas. \"arise from the protocol\" (3:10.7): a superfície brilha. \"the material's biological behavior\" (3:13.5): anéis dourados nas três do Exp 1. As cores de passagem nunca são usadas para os materiais. Todos os pontos ficam DENTRO do HYDRA (puxados para o centro no 4-D; a descida do Exp 1 não atravessa a casca). Marcadores: esferas com matéria (cerâmica fosca, microporosa), DENTRO do HYDRA; haste do halo previsto até cada esfera, vermelha fora de ±2σ. Em \"To validate\" o HYDRA fica em proliferação."
+   },
+   {
+    "id": "c11",
+    "de": 196.3,
+    "ate": 223.1,
+    "texto": "B9 — fecho (3:16.3–3:43.1). \"a reference surface\" (3:17.7) esferas, linhas e cápsulas somem, os 25 objetos voltam às suas cores, o campo brilha uma vez; o HYDRA passa rápido pelas quatro propriedades (~1,3 s cada) e volta a PROLIFERAÇÃO. \"For biomaterial research\" (3:22.85): voltam a LEGENDA (com a sonda) e as DUAS LINHAS de B8 — a branca da referência e a laranja do Exp 1 (desvio), com as esferas; o HYDRA fica em proliferação (as esferas são dados de crescimento). \"the material itself\" (3:30.46): ÊNFASE na legenda (cresce 14 %) e a cápsula gbl22 entra AO LADO dela (à direita do HYDRA = o material). \"or the testing protocol\" (3:31.37): ÊNFASE nas linhas (mais grossas; a legenda baixa) e à ESQUERDA do HYDRA entram os quatro elementos do PROTOCOLO — discos 5·10·15, timer, tubos, célula. Sem placas de Petri. \"how the researcher chooses to run the test\" (3:34.5): as quatro famílias de arestas pulsam uma a uma, SA · ET · EV · CP. \"a foundation\" (3:38.0): tudo ao redor sai; GRAND FINALE — o HYDRA ACELERA o giro 4-D e CRESCE (4,5×, ease-in) vindo na direção de quem olha até ENGOLIR a pessoa; as quatro famílias de arestas acendem juntas, as 25 condições brilham na cor da passagem; o escuro chega com a pessoa dentro dele (3:42.7–3:43.1). A placa no plinto — \"Actual representation of HYDRA, reconstructed from 25 experimental groups\" — aparece SOZINHA, sem a legenda: no desdobramento (2:18.8–2:22.4) e em \"a reference surface\" (3:16.3–3:22.4) (uma face voltada para P6, outra para P7)."
+   },
+   {
+    "id": "c12",
+    "de": 223.2,
+    "ate": 229.2,
+    "texto": "FIM (3:43.2–3:49.3): tela PRETA \"Thank you for watching\" à frente de quem olha, na altura do olho, a 2,8 m — embaixo o emblema da NUS (o .glb do cartaz), o título e os autores (o .glb do cartaz) \"Presenter: Clarice F. Sabino\" e \"VR prepared by Vinicius Rosa\"; o emblema mais claro (luz + auto-iluminação). Entra em 0,8 s, sai nos últimos 0,6 s; depois o loop volta ao cartaz. A peça passou de 3:43 para 3:49 (o cartão de duração acompanha)."
+   }
+  ]
+ }
+}
