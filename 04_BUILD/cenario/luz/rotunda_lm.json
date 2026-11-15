@@ -1,0 +1,11 @@
+{
+  "escala": 0.12989592552185059,
+  "ganho": 10,
+  "texturasCarregadas": true,
+  "tamanho": 512,
+  "sol": "solRot",
+  "pontosDeLuz": 2345,
+  "monolitoDiferencaMediaPct": 14.041,
+  "gerado": "2026-09-28T00:52:16.327Z",
+  "por": "bake.html (D-230)"
+}

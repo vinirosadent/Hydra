@@ -1,0 +1,166 @@
+{
+ "v": 1,
+ "gerado": "2026-09-26",
+ "itens": [
+  {
+   "codigo": "gbl1",
+   "arquivo": "alizarin-red-14-28d.glb",
+   "miniatura": "gbl_thumbs/gbl1.png"
+  },
+  {
+   "codigo": "gbl2",
+   "arquivo": "ca3sio5-disc.glb",
+   "miniatura": "gbl_thumbs/gbl2.png"
+  },
+  {
+   "codigo": "gbl3",
+   "arquivo": "ca3sio5-discs-different sizes.glb",
+   "miniatura": "gbl_thumbs/gbl3.png"
+  },
+  {
+   "codigo": "gbl4",
+   "arquivo": "capsulas-cement-a-b.glb",
+   "miniatura": "gbl_thumbs/gbl4.png"
+  },
+  {
+   "codigo": "gbl5",
+   "arquivo": "cement 3 disc.glb",
+   "miniatura": "gbl_thumbs/gbl5.png"
+  },
+  {
+   "codigo": "gbl6",
+   "arquivo": "cement disc.glb",
+   "miniatura": "gbl_thumbs/gbl6.png"
+  },
+  {
+   "codigo": "gbl7",
+   "arquivo": "cement-powders-4.glb",
+   "miniatura": "gbl_thumbs/gbl7.png"
+  },
+  {
+   "codigo": "gbl8",
+   "arquivo": "citotoxicidade-24h-4-grupos.glb",
+   "miniatura": "gbl_thumbs/gbl8.png"
+  },
+  {
+   "codigo": "gbl9",
+   "arquivo": "digital-clocks-24-72-120h.glb",
+   "miniatura": "gbl_thumbs/gbl9.png"
+  },
+  {
+   "codigo": "gbl10",
+   "arquivo": "dpsc-tripolar-cell-age1.glb",
+   "miniatura": "gbl_thumbs/gbl10.png"
+  },
+  {
+   "codigo": "gbl11",
+   "arquivo": "dpsc-tripolar-cell-age4.glb",
+   "miniatura": "gbl_thumbs/gbl11.png"
+  },
+  {
+   "codigo": "gbl12",
+   "arquivo": "dpsc-tripolar-cell-age7.glb",
+   "miniatura": "gbl_thumbs/gbl12.png"
+  },
+  {
+   "codigo": "gbl13",
+   "arquivo": "dpsc-tripolar-old-cell.glb",
+   "miniatura": "gbl_thumbs/gbl13.png"
+  },
+  {
+   "codigo": "gbl14",
+   "arquivo": "falcon-50ml-rack.glb",
+   "miniatura": "gbl_thumbs/gbl14.png"
+  },
+  {
+   "codigo": "gbl15",
+   "arquivo": "falcon-50ml.glb",
+   "miniatura": "gbl_thumbs/gbl15.png"
+  },
+  {
+   "codigo": "gbl16",
+   "arquivo": "falcon-50mlafter.glb",
+   "miniatura": "gbl_thumbs/gbl16.png"
+  },
+  {
+   "codigo": "gbl17",
+   "arquivo": "falcon-with-disc.glb",
+   "miniatura": "gbl_thumbs/gbl17.png"
+  },
+  {
+   "codigo": "gbl18",
+   "arquivo": "placa-com-celulas.glb",
+   "miniatura": "gbl_thumbs/gbl18.png"
+  },
+  {
+   "codigo": "gbl19",
+   "arquivo": "proliferacao-1-3-5-7d.glb",
+   "miniatura": "gbl_thumbs/gbl19.png"
+  },
+  {
+   "codigo": "gbl20",
+   "arquivo": "radipacifier-5-10-15g.glb",
+   "miniatura": "gbl_thumbs/gbl20.png"
+  },
+  {
+   "codigo": "gbl21",
+   "arquivo": "wound-healing-assay-4-dishes.glb",
+   "miniatura": "gbl_thumbs/gbl21.png"
+  },
+  {
+   "codigo": "gbl22",
+   "arquivo": "capsula-mta-repair-hp.glb",
+   "miniatura": "gbl_thumbs/gbl22.png"
+  },
+  {
+   "codigo": "gbl23",
+   "arquivo": "emblema-nus-relevo.glb",
+   "miniatura": "gbl_thumbs/gbl23.png"
+  },
+  {
+   "codigo": "gbl24",
+   "arquivo": "gaussian-process-regression-3d.glb",
+   "miniatura": "gbl_thumbs/gbl24.png"
+  },
+  {
+   "codigo": "gbl25",
+   "arquivo": "gradient-boosting-regressor-3d.glb",
+   "miniatura": "gbl_thumbs/gbl25.png"
+  },
+  {
+   "codigo": "gbl26",
+   "arquivo": "random-forest-3d.glb",
+   "miniatura": "gbl_thumbs/gbl26.png"
+  },
+  {
+   "codigo": "gbl27",
+   "arquivo": "titulo-atlas-cscs-3d.glb",
+   "miniatura": "gbl_thumbs/gbl27.png"
+  },
+  {
+   "codigo": "gbl28",
+   "arquivo": "xgboost-3d.glb",
+   "miniatura": "gbl_thumbs/gbl28.png"
+  },
+  {
+   "codigo": "gbl29",
+   "arquivo": "inert&bioactive.glb",
+   "miniatura": "gbl_thumbs/gbl29.png"
+  },
+  {
+   "codigo": "gbl30",
+   "arquivo": "curvas-liberacao-3d.glb",
+   "miniatura": "gbl_thumbs/gbl30.png"
+  },
+  {
+   "codigo": "gbl31",
+   "arquivo": "timer-bancada-tanita-style.glb",
+   "miniatura": "gbl_thumbs/gbl31.png"
+  },
+  {
+   "codigo": "gbl32",
+   "arquivo": "ca3sio5-discs-5-10-15.glb",
+   "miniatura": "gbl_thumbs/gbl32.png"
+  }
+ ]
+}
