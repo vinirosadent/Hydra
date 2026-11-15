@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HYDRA · immersive piece</title>
+<!-- __hydra_launcher__ -->
+<style>
+  :root { --bg:#14161a; --fg:#eceae4; --mut:#9a978f; --ok:#7fc79a; --warn:#e6b45a; --bad:#e07a6a; --acc:#d9c7a0; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:20px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+         display:flex; min-height:100vh; align-items:center; justify-content:center; padding:24px 16px; }
+  main { width:min(760px,100%); }
+  h1 { font-size:44px; letter-spacing:.14em; margin:0 0 4px; font-weight:600; }
+  .sub { color:var(--mut); margin:0 0 28px; }
+  #go { display:block; width:100%; padding:30px 20px; font-size:34px; font-weight:600; letter-spacing:.06em;
+        border:0; border-radius:16px; background:var(--acc); color:#1a1814; cursor:pointer; }
+  #go:disabled { background:#3a3c40; color:#777; cursor:default; }
+  .box { margin-top:26px; padding:18px 20px; border:1px solid #2c2f35; border-radius:12px; background:#1a1d22; }
+  .row { display:flex; justify-content:space-between; gap:16px; padding:5px 0; }
+  .row b { font-weight:600; }
+  .ok { color:var(--ok); } .warn { color:var(--warn); } .bad { color:var(--bad); }
+  #bar { height:14px; background:#2a2d33; border-radius:7px; overflow:hidden; margin:12px 0 4px; }
+  #fill { height:100%; width:0; background:var(--acc); transition:width .2s; }
+  #msg { margin-top:10px; color:var(--mut); font-size:18px; min-height:1.4em; }
+  button.small { margin-top:14px; padding:10px 16px; font-size:17px; border-radius:10px; border:1px solid #444; background:#22252b; color:var(--fg); cursor:pointer; }
+</style>
+</head>
+<body>
+<main>
+  <h1>HYDRA</h1>
+  <p class="sub">Immersive piece · Meta Quest</p>
+
+  <button id="go" disabled>Preparing…</button>
+
+  <div class="box">
+    <div class="row"><span>Offline copy in this headset</span><b id="st">checking…</b></div>
+    <div id="bar"><div id="fill"></div></div>
+    <div class="row"><span>Downloaded</span><span id="prog">–</span></div>
+    <div class="row"><span>Internet now</span><span id="net">–</span></div>
+    <div class="row"><span>Protected from automatic cleanup</span><span id="pers">–</span></div>
+    <div class="row"><span>Version</span><span id="ver">–</span></div>
+    <div id="msg"></div>
+    <button class="small" id="again">Check / download again</button>
+  </div>
+</main>
+<script>
+(() => {
+  const PREFIXO = 'hydra-', MARCA = '__hydra_completo__';
+  const $ = id => document.getElementById(id);
+  const base = new URL('./', location.href).href;
+  const abs = p => new URL(p, base).href;
+  const MB = b => (b / 1048576).toFixed(1) + ' MB';
+  let ocupado = false;
+
+  function estado(txt, cls) { $('st').textContent = txt; $('st').className = cls || ''; }
+  function msg(t) { $('msg').textContent = t || ''; }
+  function botao(pronto, texto) { const b = $('go'); b.disabled = !pronto; b.textContent = texto; }
+  function rede() { $('net').textContent = navigator.onLine ? 'yes' : 'no (offline)'; }
+  addEventListener('online', rede); addEventListener('offline', rede);
+
+  $('go').onclick = () => { location.href = abs('04_BUILD/index.html'); };
+  $('again').onclick = () => preparar(true);
+
+  async function manifesto() {
+    try {
+      const r = await fetch(abs('precache.json'), { cache: 'no-store' });
+      if (!r.ok) return null;
+      const j = await r.json();
+      return (j && j.ver && j.files) ? j : null;
+    } catch (e) { return null; }
+  }
+
+  async function completa(ver) {
+    if (!('caches' in self)) return null;
+    const c = await caches.open(PREFIXO + ver);
+    const m = await c.match(abs(MARCA));
+    return m ? c : null;
+  }
+
+  async function qualquerCompleta() {
+    let melhor = null, quando = -1, ver = null;
+    for (const n of (await caches.keys()).filter(n => n.startsWith(PREFIXO))) {
+      const c = await caches.open(n);
+      const m = await c.match(abs(MARCA));
+      if (!m) continue;
+      let t = 0; try { t = (await m.clone().json()).quando || 0; } catch (e) {}
+      if (t > quando) { quando = t; melhor = c; ver = n.slice(PREFIXO.length); }
+    }
+    return melhor ? { c: melhor, ver } : null;
+  }
+
+  async function baixar(man) {
+    const c = await caches.open(PREFIXO + man.ver);
+    const todos = man.files;
+    const total = todos.reduce((s, f) => s + f.size, 0);
+    let feitos = 0, bytes = 0;
+    const pinta = () => {
+      $('fill').style.width = (100 * bytes / total).toFixed(1) + '%';
+      $('prog').textContent = feitos + ' / ' + todos.length + ' files · ' + MB(bytes) + ' of ' + MB(total);
+    };
+    // o que já está nesta versão não baixa de novo (retomada)
+    const falta = [];
+    for (const f of todos) {
+      if (await c.match(abs(f.p))) { feitos++; bytes += f.size; } else falta.push(f);
+    }
+    pinta();
+    let i = 0, erro = null;
+    async function um() {
+      while (i < falta.length && !erro) {
+        const f = falta[i++];
+        let ok = false;
+        for (let t = 0; t < 4 && !ok; t++) {
+          try {
+            const r = await fetch(abs(f.p) + '?hydra-baixar=' + man.ver, { cache: 'reload' });
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            const blob = await r.blob();
+            if (f.size && blob.size !== f.size) throw new Error('size ' + blob.size + ' ≠ ' + f.size);
+            await c.put(abs(f.p), new Response(blob, { headers: { 'Content-Type': r.headers.get('Content-Type') || 'application/octet-stream' } }));
+            ok = true;
+          } catch (e) {
+            if (t === 3) erro = f.p + ' — ' + e.message;
+            else await new Promise(s => setTimeout(s, 1500 * (t + 1)));
+          }
+        }
+        if (ok) { feitos++; bytes += f.size; pinta(); }
+      }
+    }
+    await Promise.all([um(), um(), um(), um()]);
+    if (erro) throw new Error(erro);
+    // a página inicial e a lista também ficam guardadas
+    for (const p of ['index.html', 'precache.json']) {
+      const r = await fetch(abs(p) + '?hydra-baixar=' + man.ver, { cache: 'reload' });
+      if (!r.ok) throw new Error(p + ' — HTTP ' + r.status);
+      await c.put(abs(p), r);
+    }
+    await c.put(abs(MARCA), new Response(JSON.stringify({ ver: man.ver, quando: Date.now() }), { headers: { 'Content-Type': 'application/json' } }));
+    // apaga versões antigas só agora, com a nova completa
+    for (const n of await caches.keys()) if (n.startsWith(PREFIXO) && n !== PREFIXO + man.ver) await caches.delete(n);
+  }
+
+  async function protecao() {
+    try {
+      if (!navigator.storage || !navigator.storage.persist) { $('pers').textContent = 'not available'; return; }
+      let p = await navigator.storage.persisted();
+      if (!p) p = await navigator.storage.persist();
+      $('pers').textContent = p ? 'yes' : 'no (bookmark this page)';
+      $('pers').className = p ? 'ok' : 'warn';
+    } catch (e) { $('pers').textContent = '–'; }
+  }
+
+  async function preparar(forcar) {
+    if (ocupado) return; ocupado = true; msg('');
+    rede();
+    try {
+      if (!('serviceWorker' in navigator) || !('caches' in self)) {
+        estado('not supported', 'bad'); botao(navigator.onLine, 'START HYDRA (online only)');
+        msg('This browser cannot keep an offline copy.'); return;
+      }
+      await navigator.serviceWorker.register(abs('sw.js'), { scope: base });
+      await navigator.serviceWorker.ready;
+      protecao();
+
+      const man = navigator.onLine ? await manifesto() : null;
+      if (man) {
+        $('ver').textContent = man.ver.slice(0, 8) + ' · ' + man.data;
+        if (await completa(man.ver) && !forcar) {
+          estado('READY', 'ok'); $('fill').style.width = '100%';
+          $('prog').textContent = man.files.length + ' files · ' + MB(man.files.reduce((s, f) => s + f.size, 0));
+          botao(true, 'START HYDRA'); msg('Works without internet and without the computer.');
+          return;
+        }
+        if (forcar) await caches.delete(PREFIXO + man.ver);
+        estado('downloading…', 'warn'); botao(false, 'Downloading… keep this page open');
+        msg('First time only. Keep the headset awake and this page open.');
+        await baixar(man);
+        estado('READY', 'ok'); botao(true, 'START HYDRA'); msg('Done. From now on it works without internet.');
+        return;
+      }
+      // sem internet (ou sem acesso ao site): usa a cópia guardada
+      const q = await qualquerCompleta();
+      if (q) {
+        $('ver').textContent = q.ver.slice(0, 8);
+        const m2 = await q.c.match(abs('precache.json'));
+        let n = '', tot = 0;
+        if (m2) { try { const j = await m2.json(); n = j.files.length; tot = j.files.reduce((s, f) => s + f.size, 0); if (j.data) $('ver').textContent += ' · ' + j.data; } catch (e) {} }
+        $('fill').style.width = '100%'; $('prog').textContent = n ? (n + ' files · ' + MB(tot)) : 'complete';
+        estado('READY', 'ok'); botao(true, 'START HYDRA'); msg('Running from the copy stored in this headset.');
+      } else {
+        estado('NOT DOWNLOADED', 'bad'); botao(false, 'Needs internet once');
+        msg('Connect the headset to Wi-Fi and open this page once to download HYDRA.');
+      }
+    } catch (e) {
+      estado('INCOMPLETE', 'bad');
+      const q = await qualquerCompleta().catch(() => null);
+      if (q) { botao(true, 'START HYDRA (previous copy)'); msg('Download stopped: ' + e.message + '. The previous complete copy still works.'); }
+      else { botao(false, 'Not ready'); msg('Download stopped: ' + e.message + '. Tap "Check / download again" — it resumes where it stopped.'); }
+    } finally { ocupado = false; }
+  }
+
+  preparar(false);
+})();
+</script>
+</body>
+</html>

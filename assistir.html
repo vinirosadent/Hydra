@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HYDRA · immersive piece</title>
+<!-- __hydra_assistir__  ·  trilha Q · D-406
+     Versão de NAVEGADOR (monitor) para quem não tem o Quest: a peça roda dentro de um iframe, sem nenhuma
+     mudança no app.js/index.html da M. Esta página:
+       - esconde as ferramentas de trabalho (localizador, registro, timeline, estúdio, minimapa, botão VR);
+       - põe uma tela de início própria (o clique dela é o gesto que libera o som);
+       - "cabeça" com o mouse/dedo: arrastar gira o olhar POR CIMA do percurso da câmera, como virar a cabeça
+         no headset (o percurso continua andando sozinho); duplo clique recentraliza;
+       - controles mínimos: pausar/continuar, recomeçar, tela cheia. -->
+<style>
+  html,body{margin:0;height:100%;background:#000;overflow:hidden}
+  #peca{position:fixed;inset:0;width:100%;height:100%;border:0;display:block;background:#000}
+</style>
+</head>
+<body>
+<iframe id="peca" src="about:blank" allow="autoplay; fullscreen; xr-spatial-tracking" title="HYDRA"></iframe>
+<script>
+(() => {
+  const fr = document.getElementById('peca');
+  // ?leve = sem sombras em tempo real (computador fraco)
+  fr.src = '04_BUILD/index.html?semaviso' + (/[?&]leve\b/.test(location.search) ? '&lite' : '');
+  const SENS = 0.0042;                 // rad por pixel arrastado
+  const PITCH_MAX = 1.25;              // ~72° para cima/baixo
+  const head = { yaw: 0, pitch: 0, tyaw: 0, tpitch: 0 };
+  let W, D, H, pronto = false, iniciado = false;
+
+  const CSS = `
+    #loc,#reg,#tr,#rev,#snd,#maplab,#est,#ff,#vo,#VRButton,#boot,.hud{display:none!important}
+    canvas#gl{cursor:grab;touch-action:none}
+    canvas#gl.arrasta{cursor:grabbing}
+    #hx-ov{position:fixed;inset:0;z-index:99990;display:flex;align-items:center;justify-content:center;
+      background:rgba(10,11,13,.72);backdrop-filter:blur(3px);font:17px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;color:#ece9e2}
+    #hx-ov .c{width:min(520px,calc(100% - 32px));text-align:center}
+    #hx-ov h1{font-size:46px;letter-spacing:.16em;font-weight:600;margin:0 0 4px}
+    #hx-ov .s{color:#a9a59c;margin:0 0 26px}
+    #hx-ov ul{list-style:none;padding:0;margin:0 0 28px;text-align:left;display:inline-block;color:#d6d2c9}
+    #hx-ov li{margin:6px 0}
+    #hx-ov li b{display:inline-block;width:1.6em;color:#d9c7a0}
+    #hx-go{font:600 22px system-ui,sans-serif;letter-spacing:.06em;padding:16px 46px;border:0;border-radius:12px;
+      background:#d9c7a0;color:#1a1814;cursor:pointer}
+    #hx-go:disabled{background:#3a3c40;color:#888;cursor:default}
+    #hx-bar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:99980;display:flex;gap:8px;
+      opacity:0;transition:opacity .35s;pointer-events:none}
+    body.hx-mexe #hx-bar{opacity:1;pointer-events:auto}
+    #hx-bar button{font:15px system-ui,sans-serif;color:#ece9e2;background:rgba(20,22,26,.78);border:1px solid rgba(255,255,255,.18);
+      border-radius:10px;padding:9px 14px;cursor:pointer}
+    #hx-dica{position:fixed;left:50%;top:22px;transform:translateX(-50%);z-index:99980;font:15px system-ui,sans-serif;
+      color:#ece9e2;background:rgba(20,22,26,.7);padding:8px 14px;border-radius:10px;transition:opacity 1s;pointer-events:none}
+  `;
+
+  function el(tag, attrs, html) { const e = D.createElement(tag); Object.assign(e, attrs || {}); if (html != null) e.innerHTML = html; return e; }
+  const fmt = s => Math.floor(s / 60) + ' min ' + String(Math.round(s % 60)).padStart(2, '0') + ' s';
+
+  function montar() {
+    W = fr.contentWindow; D = fr.contentDocument; H = W.HYDRA;
+    D.head.appendChild(el('style', {}, CSS));
+
+    // minimapa de trabalho: desligado (o botão é da própria peça)
+    const bMap = D.getElementById('bMap'); if (bMap && bMap.classList.contains('on')) bMap.click();
+
+    // teclado da peça (voo livre, registro, estúdio…) desligado; espaço = pausar
+    W.addEventListener('keydown', e => {
+      e.stopImmediatePropagation();
+      if (iniciado && e.key === ' ') { e.preventDefault(); D.getElementById('bPlay').click(); }
+    }, true);
+
+    // "cabeça": o deslocamento entra só no instante de desenhar a vista principal e sai logo depois,
+    // então o percurso da câmera calculado pela peça não é tocado
+    const r = H.renderer, cam = H.camera, orig = r.render.bind(r);
+    r.render = function (sc, c) {
+      if (c === cam && !r.xr.isPresenting && (head.yaw || head.pitch)) {
+        const y0 = cam.rotation.y, x0 = cam.rotation.x;
+        cam.rotation.y = y0 + head.yaw;
+        cam.rotation.x = Math.max(-1.45, Math.min(1.45, x0 + head.pitch));
+        cam.updateMatrixWorld(true);
+        orig(sc, c);
+        cam.rotation.y = y0; cam.rotation.x = x0; cam.updateMatrixWorld(true);
+        return;
+      }
+      return orig(sc, c);
+    };
+    // suaviza o movimento (sem tranco do mouse)
+    (function suave() {
+      head.yaw += (head.tyaw - head.yaw) * 0.25;
+      head.pitch += (head.tpitch - head.pitch) * 0.25;
+      if (Math.abs(head.tyaw - head.yaw) < 1e-4) head.yaw = head.tyaw;
+      if (Math.abs(head.tpitch - head.pitch) < 1e-4) head.pitch = head.tpitch;
+      W.requestAnimationFrame(suave);
+    })();
+
+    const cv = D.getElementById('gl');
+    let arr = null;
+    cv.addEventListener('pointerdown', e => {
+      if (!iniciado) return;
+      arr = { x: e.clientX, y: e.clientY, id: e.pointerId }; cv.setPointerCapture(e.pointerId); cv.classList.add('arrasta');
+    });
+    cv.addEventListener('pointermove', e => {
+      if (!arr || e.pointerId !== arr.id) return;
+      const dx = e.clientX - arr.x, dy = e.clientY - arr.y; arr.x = e.clientX; arr.y = e.clientY;
+      head.tyaw += dx * SENS;                                   // arrasta o mundo (como Street View)
+      head.tpitch = Math.max(-PITCH_MAX, Math.min(PITCH_MAX, head.tpitch + dy * SENS));
+    });
+    const solta = () => { arr = null; cv.classList.remove('arrasta'); };
+    cv.addEventListener('pointerup', solta); cv.addEventListener('pointercancel', solta);
+    cv.addEventListener('dblclick', () => { head.tyaw = 0; head.tpitch = 0; });
+
+    // controles mínimos (aparecem quando o mouse mexe)
+    const bar = el('div', { id: 'hx-bar' });
+    const bP = el('button', {}, '❚❚ Pause'), bR = el('button', {}, '↺ Restart'), bF = el('button', {}, '⛶ Full screen'), bC = el('button', {}, '◎ Recenter');
+    bP.onclick = () => { D.getElementById('bPlay').click(); };
+    bR.onclick = () => { H.seek(0); head.tyaw = 0; head.tpitch = 0; if (!H.playing) D.getElementById('bPlay').click(); };
+    bC.onclick = () => { head.tyaw = 0; head.tpitch = 0; };
+    bF.onclick = () => { const d = document; if (d.fullscreenElement) d.exitFullscreen(); else d.documentElement.requestFullscreen().catch(() => {}); };
+    bar.append(bP, bR, bC, bF); D.body.appendChild(bar);
+    (function rotulo() { bP.textContent = H.playing ? '❚❚ Pause' : '▶ Play'; W.setTimeout(rotulo, 300); })();
+    let tm = null;
+    const mexe = () => { D.body.classList.add('hx-mexe'); clearTimeout(tm); tm = setTimeout(() => D.body.classList.remove('hx-mexe'), 2500); };
+    D.addEventListener('pointermove', mexe); D.addEventListener('pointerdown', mexe);
+
+    // tela de início
+    const ov = el('div', { id: 'hx-ov' }, `
+      <div class="c">
+        <h1>HYDRA</h1>
+        <p class="s">Immersive piece · ${fmt(H.total)}</p>
+        <ul>
+          <li><b>⟲</b>Drag with the mouse (or finger) to look around</li>
+          <li><b>◎</b>Double-click to look forward again</li>
+          <li><b>♪</b>Sound on — headphones recommended</li>
+        </ul><br>
+        <button id="hx-go" disabled>Loading…</button>
+      </div>`);
+    D.body.appendChild(ov);
+    const go = D.getElementById('hx-go');
+    (function espera() {
+      if (D.getElementById('boot').classList.contains('gone')) { go.disabled = false; go.textContent = 'Start'; pronto = true; }
+      else W.setTimeout(espera, 250);
+    })();
+    go.onclick = e => {
+      e.stopPropagation(); if (!pronto) return;
+      ov.remove(); iniciado = true;
+      H.startSound(true);
+      const dica = el('div', { id: 'hx-dica' }, 'Drag to look around'); D.body.appendChild(dica);
+      setTimeout(() => { dica.style.opacity = '0'; setTimeout(() => dica.remove(), 1200); }, 4000);
+    };
+    window.HX = { head, H };   // para diagnóstico
+  }
+
+  // espera a peça expor window.HYDRA (o app.js é um módulo e demora a carregar)
+  fr.addEventListener('load', () => {
+    if (!fr.contentWindow || fr.contentWindow.location.href === 'about:blank') return;
+    (function tenta() {
+      try {
+        const w = fr.contentWindow;
+        if (w && w.HYDRA && w.HYDRA.renderer && w.HYDRA.camera && w.document.getElementById('bPlay')) return montar();
+      } catch (e) {}
+      setTimeout(tenta, 200);
+    })();
+  });
+})();
+</script>
+</body>
+</html>
